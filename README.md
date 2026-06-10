@@ -76,3 +76,26 @@ This site automatically deploys to Cloudflare Pages when pushed to the `main` br
 ---
 
 ## 📂 Project Structure
+
+move-out-japan/
+├── index.html # Main website
+├── manifest.json # PWA manifest
+├── robots.txt # Crawl rules
+├── sitemap.xml # URL listing
+├── README.md # Documentation
+├── .gitignore # Git ignore rules
+└── favicon/ # Icons folder
+├── favicon.ico
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── apple-touch-icon.png
+├── android-chrome-192x192.png
+└── android-chrome-512x512.png
+
+text
+
+---
+
+## 📄 License
+
+© 2024 Move Out Japan. All rights reserved.
