@@ -1,34 +1,69 @@
-# Move Out Japan
+# 🏠 Move Out Japan
 
-A website that helps foreign students in Japan get rid of their furniture and appliances when moving out. No stress, no confusing Japanese paperwork, and no surprise fees.
+**Furniture Disposal & Moving Support for Foreigners in Japan**
 
----
-
-## What This Website Is About
-
-Moving out in Japan can be tough for international students. The garbage rules are complicated, appliances are heavy, and if you leave things behind, your landlord might take a big chunk of your deposit. This website solves that problem.
+English-speaking support for foreigners moving out in Japan. We handle furniture disposal, appliance recycling, apartment checkout help, and moving support across all major Japanese cities.
 
 ---
 
-## What It Does
+## 🌐 Live Website
 
-- Explains the common problems students face when moving out in Japan
-- Shows a simple four-step process from sending photos to getting items picked up
-- Lists clear prices for disposing fridges, washing machines, microwaves, and furniture
-- Offers payment methods that work for students like PayPay, LINE Pay, bank transfer, and cash on pickup
-- Lets students request a free quote by filling out a quick form
-- Answers common questions about appliance disposal, sodai gomi, and the recycling laws
-- Displays what areas are covered like Tokyo, Osaka, Fukuoka, Nagoya, Kyoto, and Yokohama
-- Includes real feedback from students who have used the service
+👉 **[https://moveoutjapan.netlify.app](https://moveoutjapan.netlify.app)**
 
 ---
 
-## Who This Website Is For
+## 📱 Quick Contact
 
-Foreign students living in Japan who are moving out of their apartment and need to legally dispose of large items without losing their deposit or dealing with language barriers.
+- **LINE**: [@704xslsr](https://line.me/ti/p/@704xslsr)
+- **Email**: bistadinesh642@gmail.com
+- **Service Areas**: Fukuoka, Saga, Tokyo, Osaka, Nagoya, Kyoto, Yokohama, Saitama, Chiba, Kawasaki, Sapporo, Kobe, Hiroshima, Sendai
 
 ---
 
-## How It Feels
+## 🚀 Features
 
-Clean, simple, and friendly. The site is designed to feel like a helpful person walking you through the process rather than a corporate service page. Everything is in plain English with no complicated terms.
+- ✅ English support for foreigners
+- ✅ Legal furniture & appliance disposal
+- ✅ Apartment checkout assistance
+- ✅ Transparent pricing (¥8,000 - ¥10,000)
+- ✅ PayPay, LINE Pay, Bank Transfer, Cash
+- ✅ Free quote within 24 hours
+- ✅ Pickup available in 2-7 days
+
+---
+
+## 🔧 Tech Stack
+
+- HTML5, CSS3, JavaScript
+- EmailJS for form handling
+- Netlify for deployment
+- Structured Data (JSON-LD) for SEO
+- Progressive Web App (PWA) ready
+
+---
+
+## 📦 Deployment
+
+This site is automatically deployed to Netlify from this repository.
+
+### Manual Deploy
+1. Clone this repository
+2. Drag folder to Netlify
+3. Site is live!
+
+---
+
+## 📈 SEO Optimization
+
+- Structured data for Organization, LocalBusiness, FAQ
+- Optimized meta tags for Google & social media
+- Sitemap.xml for search engines
+- Robots.txt for crawl control
+- Mobile-responsive design
+- Performance optimized
+
+---
+
+## 📄 License
+
+© 2024 Move Out Japan. All rights reserved.
