@@ -1,7 +1,7 @@
 {
   "name": "Move Out Japan - Furniture Disposal & Moving Support",
   "short_name": "MoveOutJapan",
-  "description": "English support for foreigners moving out in Japan. Furniture disposal, apartment checkout help, moving support, and more.",
+  "description": "English support for foreigners moving out in Japan. Furniture disposal, apartment checkout help, moving support.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

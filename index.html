@@ -11,27 +11,32 @@
   <meta name="keywords" content="move out japan, furniture disposal japan, foreign student moving out japan, moving out support japan, apartment checkout japan foreigners, dispose furniture japan english support, 外国人 引っ越し, 家具処分, 退去サポート, 英語対応" />
   
   <!-- CANONICAL & INDEXING CONTROL -->
-  <link rel="canonical" href="https://moveoutjapan.netlify.app/" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://moveoutjapan.pages.dev/" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
   
   <!-- OPEN GRAPH / FACEBOOK -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Move Out Japan" />
-  <meta property="og:url" content="https://moveoutjapan.netlify.app/" />
+  <meta property="og:url" content="https://moveoutjapan.pages.dev/" />
   <meta property="og:title" content="Move Out Japan | Furniture & Moving Support for Foreigners" />
   <meta property="og:description" content="English-speaking disposal & moving support for foreigners in Japan. Furniture, appliances, apartment checkout help. Legal, fast, transparent pricing." />
-  <meta property="og:image" content="https://moveoutjapan.netlify.app/og-image.jpg" />
+  <meta property="og:image" content="https://moveoutjapan.pages.dev/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Move Out Japan - Foreigner-friendly moving and furniture disposal support" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
 
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://moveoutjapan.netlify.app/" />
+  <meta name="twitter:site" content="@moveoutjapan" />
+  <meta name="twitter:creator" content="@moveoutjapan" />
+  <meta name="twitter:url" content="https://moveoutjapan.pages.dev/" />
   <meta name="twitter:title" content="Move Out Japan | Furniture & Moving Support for Foreigners" />
   <meta name="twitter:description" content="English support for foreigners moving out in Japan. Furniture disposal, apartment checkout help, moving support." />
-  <meta name="twitter:image" content="https://moveoutjapan.netlify.app/og-image.jpg" />
+  <meta name="twitter:image" content="https://moveoutjapan.pages.dev/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Move Out Japan - Professional moving support for foreigners" />
 
   <!-- MOBILE & APP OPTIMIZATION -->
   <meta name="theme-color" content="#111827" />
@@ -40,14 +45,17 @@
   <meta name="apple-mobile-web-app-title" content="Move Out Japan" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="application-name" content="Move Out Japan" />
+  <meta name="msapplication-TileColor" content="#111827" />
+  <meta name="format-detection" content="telephone=no" />
 
-  <!-- FAVICON SYSTEM -->
+  <!-- FAVICON & BRANDING SYSTEM -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#111827" />
   <link rel="manifest" href="/manifest.json" />
 
   <!-- PERFORMANCE OPTIMIZATION -->
@@ -60,68 +68,176 @@
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
 
-  <!-- STRUCTURED DATA -->
+  <!-- STRUCTURED DATA - ORGANIZATION -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
+    "@type": "Organization",
+    "name": "Move Out Japan",
+    "alternateName": "MOJ",
+    "url": "https://moveoutjapan.pages.dev",
+    "logo": "https://moveoutjapan.pages.dev/logo.png",
+    "description": "English support for foreigners moving out in Japan. Furniture disposal, apartment checkout help, moving support.",
+    "email": "bistadinesh642@gmail.com",
+    "sameAs": [
+      "https://line.me/ti/p/@704xslsr"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Japanese"],
+      "email": "bistadinesh642@gmail.com"
+    },
+    "foundingDate": "2024",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Japan"
+    }
+  }
+  </script>
+
+  <!-- STRUCTURED DATA - WEBSITE -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Move Out Japan",
+    "url": "https://moveoutjapan.pages.dev",
+    "description": "English support for foreigners moving out in Japan. Furniture disposal, apartment checkout help, moving support.",
+    "inLanguage": "en",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://moveoutjapan.pages.dev/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- STRUCTURED DATA - LOCAL BUSINESS -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Move Out Japan",
+    "description": "Furniture and appliance disposal support for foreigners in Japan. English-speaking, legal recycling, free quotes.",
+    "url": "https://moveoutjapan.pages.dev",
+    "email": "bistadinesh642@gmail.com",
+    "priceRange": "¥8,000 - ¥10,000",
+    "areaServed": [
+      "Fukuoka", "Saga", "Tokyo", "Osaka", "Nagoya", 
+      "Kyoto", "Yokohama", "Saitama", "Chiba", "Kawasaki",
+      "Sapporo", "Kobe", "Hiroshima", "Sendai"
+    ],
+    "availableLanguage": ["English", "Japanese"],
+    "paymentAccepted": ["Cash", "PayPay", "Bank Transfer", "LINE Pay"],
+    "currenciesAccepted": "JPY",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  }
+  </script>
+
+  <!-- STRUCTURED DATA - SERVICE -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Foreigner Moving & Disposal Support Japan",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Move Out Japan",
+      "url": "https://moveoutjapan.pages.dev"
+    },
+    "serviceType": "Furniture and Appliance Disposal",
+    "description": "Stress-free furniture and appliance disposal for foreigners in Japan. English support, legal recycling, and easy move-out help.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Japan"
+    },
+    "availableLanguage": ["English", "Japanese"],
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "8000",
+        "priceCurrency": "JPY",
+        "minPrice": "5000",
+        "maxPrice": "15000"
+      }
+    }
+  }
+  </script>
+
+  <!-- STRUCTURED DATA - FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
       {
-        "@type": "Organization",
-        "name": "Move Out Japan",
-        "url": "https://moveoutjapan.netlify.app",
-        "logo": "https://moveoutjapan.netlify.app/logo.png",
-        "description": "English support for foreigners moving out in Japan. Furniture disposal, apartment checkout help, moving support.",
-        "email": "bistadinesh642@gmail.com",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer service",
-          "availableLanguage": ["English", "Japanese"],
-          "email": "bistadinesh642@gmail.com"
+        "@type": "Question",
+        "name": "Can foreigners use Move Out Japan's service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely! Our service is specifically designed for international students, workers, and foreigners living in Japan. All communication available in English."
         }
       },
       {
-        "@type": "WebSite",
-        "name": "Move Out Japan",
-        "url": "https://moveoutjapan.netlify.app"
+        "@type": "Question",
+        "name": "Is furniture disposal in Japan legal through this service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, 100% compliant with Japan's Home Appliance Recycling Law and local waste management regulations. All items are disposed through certified recycling channels."
+        }
       },
       {
-        "@type": "LocalBusiness",
-        "name": "Move Out Japan",
-        "description": "Furniture and appliance disposal support for foreigners in Japan.",
-        "url": "https://moveoutjapan.netlify.app",
-        "email": "bistadinesh642@gmail.com",
-        "priceRange": "¥5,000 - ¥15,000",
-        "areaServed": ["Fukuoka","Saga","Tokyo","Osaka","Nagoya","Kyoto","Yokohama","Saitama","Chiba","Kawasaki","Sapporo","Kobe","Hiroshima","Sendai"],
-        "availableLanguage": ["English", "Japanese"]
+        "@type": "Question",
+        "name": "What payment methods do you accept for moving support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We accept PayPay, bank transfer, LINE Pay, and cash on pickup. Payment is made after service completion for your peace of mind."
+        }
       },
       {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Can foreigners use Move Out Japan's service?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Absolutely! Our service is specifically designed for international students, workers, and foreigners living in Japan. All communication available in English."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is furniture disposal in Japan legal through this service?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, 100% compliant with Japan's Home Appliance Recycling Law and local waste management regulations."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What payment methods do you accept?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We accept PayPay, bank transfer, LINE Pay, and cash on pickup. Payment is made after service completion."
-            }
-          }
-        ]
+        "@type": "Question",
+        "name": "What areas in Japan do you cover for furniture disposal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We cover major cities including Fukuoka, Saga, Tokyo, Osaka, Nagoya, Kyoto, Yokohama, Saitama, Chiba, Kawasaki, Sapporo, Kobe, Hiroshima, and Sendai."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can I get moving out support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We typically respond within 24 hours and can schedule pickup within 2-7 days depending on your location. Urgent requests can be accommodated."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- STRUCTURED DATA - BREADCRUMB -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://moveoutjapan.pages.dev/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://moveoutjapan.pages.dev/#how-it-works"
       }
     ]
   }
@@ -145,6 +261,8 @@
       color: #1e293b;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     .container {
@@ -185,7 +303,22 @@
       font-size: 1.05rem;
     }
 
-    /* NAVIGATION */
+    /* Skip navigation for accessibility */
+    .skip-nav {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #111827;
+      color: white;
+      padding: 8px 16px;
+      z-index: 10000;
+      transition: top 0.2s;
+    }
+    .skip-nav:focus {
+      top: 0;
+    }
+
+    /* Navigation */
     .navbar {
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(10px);
@@ -267,7 +400,7 @@
       border-radius: 2px;
     }
 
-    /* HERO */
+    /* Hero section */
     .hero {
       background: linear-gradient(135deg, #ffffff 0%, #f4f4f0 100%);
       padding: 80px 0 100px;
@@ -374,11 +507,18 @@
       height: 20px;
     }
 
-    /* CARDS */
+    /* Cards */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 28px;
+      margin-top: 48px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
       margin-top: 48px;
     }
 
@@ -459,7 +599,6 @@
       margin-top: 24px;
     }
 
-    /* FAQ */
     .faq-item {
       margin-bottom: 24px;
       padding-bottom: 24px;
@@ -485,7 +624,6 @@
       display: block;
     }
 
-    /* FORM */
     .contact-form {
       background: white;
       padding: 40px;
@@ -584,48 +722,51 @@
   </style>
 </head>
 <body>
+  <!-- Skip navigation link for accessibility -->
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
   <header>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="container nav-container">
-        <a href="/" class="nav-logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <a href="/" class="nav-logo" aria-label="Move Out Japan Home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           Move Out Japan
         </a>
-        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
-        <div class="nav-links" id="navLinks">
-          <a href="#how-it-works">How It Works</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact-form-section" class="nav-cta">Get Free Quote</a>
+        <div class="nav-links" id="navLinks" role="menubar">
+          <a href="#how-it-works" role="menuitem">How It Works</a>
+          <a href="#pricing" role="menuitem">Pricing</a>
+          <a href="#faq" role="menuitem">FAQ</a>
+          <a href="#contact-form-section" class="nav-cta" role="menuitem">Get Free Quote</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
         <div class="hero-content">
-          <h1>Moving Out in Japan?<br>We Help Foreigners Dispose Furniture Stress-Free</h1>
+          <h1 id="hero-heading">Moving Out in Japan?<br>We Help Foreigners Dispose Furniture Stress-Free</h1>
           <p class="japanese-subtitle">外国人向け・家具家電の処分サポート — 英語対応可</p>
           <p style="font-size:1.15rem; max-width:600px; margin-bottom:20px;">
             Professional English support for furniture disposal, apartment checkout, and moving out in Japan. Legal recycling, transparent pricing, zero Japanese paperwork stress.
           </p>
           <div class="trust-badges">
-            <div class="trust-badge"><span class="badge-dot"></span> English Support</div>
-            <div class="trust-badge"><span class="badge-dot"></span> Foreigner-Friendly</div>
-            <div class="trust-badge"><span class="badge-dot"></span> Legal Disposal</div>
+            <div class="trust-badge"><span class="badge-dot" aria-hidden="true"></span> English Support</div>
+            <div class="trust-badge"><span class="badge-dot" aria-hidden="true"></span> Foreigner-Friendly</div>
+            <div class="trust-badge"><span class="badge-dot" aria-hidden="true"></span> Legal Disposal</div>
           </div>
           <div class="cta-group">
             <a href="#contact-form-section" class="cta-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
               Get Free Quote
             </a>
             <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn-green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               Quick Check on LINE
             </a>
           </div>
@@ -634,51 +775,103 @@
     </section>
 
     <!-- How It Works -->
-    <section id="how-it-works">
+    <section id="how-it-works" aria-labelledby="how-it-works-heading">
       <div class="container">
-        <h2>Simple 4-Step Moving Out Process</h2>
+        <h2 id="how-it-works-heading">Simple 4-Step Moving Out Process</h2>
+        <p style="max-width:600px;">We've simplified furniture disposal in Japan for international students and foreign workers. Here's how it works:</p>
         <div class="grid-3">
-          <div class="card"><div class="step-number">1</div><h3>Send Photos</h3><p>Share pictures via LINE or our form. No Japanese required.</p></div>
-          <div class="card"><div class="step-number">2</div><h3>Get Clear Price</h3><p>Transparent pricing with no hidden fees.</p></div>
-          <div class="card"><div class="step-number">3</div><h3>We Pick Up</h3><p>We come, carry, and remove everything legally.</p></div>
-          <div class="card"><div class="step-number">4</div><h3>Move Out Clean</h3><p>Apartment checkout ready, deposit safe.</p></div>
+          <div class="card">
+            <div class="step-number" aria-hidden="true">1</div>
+            <h3>Send Photos of Items</h3>
+            <p>Share pictures via LINE or our form. No Japanese required — we handle everything in English.</p>
+          </div>
+          <div class="card">
+            <div class="step-number" aria-hidden="true">2</div>
+            <h3>Get Clear Total Price</h3>
+            <p>Receive transparent pricing with no hidden fees. All disposal and recycling costs included.</p>
+          </div>
+          <div class="card">
+            <div class="step-number" aria-hidden="true">3</div>
+            <h3>We Pick Up Everything</h3>
+            <p>Our team comes to your apartment, carries heavy items, and removes everything legally.</p>
+          </div>
+          <div class="card">
+            <div class="step-number" aria-hidden="true">4</div>
+            <h3>Apartment Checkout Ready</h3>
+            <p>Leave your apartment clean and deposit-safe. Zero stress about Japanese disposal rules.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section style="background:#f9fafb;">
+    <section aria-labelledby="why-us-heading" style="background:#f9fafb;">
       <div class="container">
-        <h2 class="text-center">Why Foreigners Choose Move Out Japan</h2>
+        <h2 id="why-us-heading" class="text-center">Why Foreigners Choose Move Out Japan</h2>
         <div class="grid-3">
-          <div class="card"><h3>🗣️ English Support</h3><p>No Japanese required. We handle everything in clear English.</p></div>
-          <div class="card"><h3>⚖️ 100% Legal</h3><p>Certified recycling compliant with Japan's recycling laws.</p></div>
-          <div class="card"><h3>💰 Transparent Pricing</h3><p>Fixed prices upfront. Pay after service is complete.</p></div>
-          <div class="card"><h3>🏠 Checkout Help</h3><p>Ensure deposit return with complete apartment clearing.</p></div>
-          <div class="card"><h3>🚛 Nationwide</h3><p>Serving Fukuoka, Saga, and all major Japanese cities.</p></div>
-          <div class="card"><h3>⚡ Fast Response</h3><p>Quote within 24 hours. Pickup available in 2-7 days.</p></div>
+          <div class="card">
+            <h3>🗣️ English Communication</h3>
+            <p>No Japanese required. We explain everything in clear English — from pricing to disposal laws.</p>
+          </div>
+          <div class="card">
+            <h3>⚖️ 100% Legal Disposal</h3>
+            <p>All items recycled through certified channels compliant with Japan's Home Appliance Recycling Law.</p>
+          </div>
+          <div class="card">
+            <h3>💰 Transparent Pricing</h3>
+            <p>Fixed prices quoted upfront. No surprise fees. Pay after service is complete.</p>
+          </div>
+          <div class="card">
+            <h3>🏠 Apartment Checkout Help</h3>
+            <p>We help ensure your apartment is left clean for full deposit return. Moving out support from start to finish.</p>
+          </div>
+          <div class="card">
+            <h3>🚛 Nationwide Coverage</h3>
+            <p>Serving Fukuoka, Saga, and all major cities. Wherever you are in Japan, we can help.</p>
+          </div>
+          <div class="card">
+            <h3>⚡ Fast Response</h3>
+            <p>Get a quote within 24 hours. Pickup available within 2-7 days. Urgent requests accommodated.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Pricing -->
-    <section id="pricing">
+    <section id="pricing" aria-labelledby="pricing-heading">
       <div class="container">
-        <h2>Clear Pricing Examples</h2>
+        <h2 id="pricing-heading">Clear Pricing for Furniture Disposal</h2>
+        <p>All prices include pickup, carrying, legal disposal, and English support. No hidden costs.</p>
         <div class="grid-3">
-          <div class="card pricing-card popular"><div class="popular-badge">Most Common</div><h3>Refrigerator</h3><div class="price">¥10,000 <small>total</small></div></div>
-          <div class="card pricing-card"><h3>Washing Machine</h3><div class="price">¥8,000 <small>total</small></div></div>
-          <div class="card pricing-card"><h3>Microwave + Desk</h3><div class="price">¥8,000 <small>total</small></div></div>
+          <div class="card pricing-card popular">
+            <div class="popular-badge">Most Common</div>
+            <h3>Refrigerator</h3>
+            <p>Any size, includes freon gas recovery</p>
+            <div class="price">¥10,000 <small>total</small></div>
+          </div>
+          <div class="card pricing-card">
+            <h3>Washing Machine</h3>
+            <p>All types, complete removal</p>
+            <div class="price">¥8,000 <small>total</small></div>
+          </div>
+          <div class="card pricing-card">
+            <h3>Microwave + Desk</h3>
+            <p>Small appliances & furniture combo</p>
+            <div class="price">¥8,000 <small>total</small></div>
+          </div>
         </div>
-        <p class="text-center mt-40" style="color:#4b5563;">✓ All prices include pickup, carrying, legal disposal, and English support.</p>
+        <div class="highlight-box" style="margin-top:32px;">
+          <span style="font-size:1.5rem;">💡</span>
+          <span><strong>Multiple items?</strong> Contact us for a discounted bundle price. We handle everything in one pickup.</span>
+        </div>
       </div>
     </section>
 
     <!-- Service Areas -->
-    <section>
+    <section aria-labelledby="areas-heading">
       <div class="container text-center">
-        <h2>Service Areas</h2>
-        <p>We cover Fukuoka, Saga, and all major Japanese cities.</p>
+        <h2 id="areas-heading">Service Areas Across Japan</h2>
+        <p>We provide furniture disposal and moving support in all major Japanese cities:</p>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:24px; margin-top:32px; font-weight:500;">
           <span>Fukuoka</span><span>Saga</span><span>Tokyo</span><span>Osaka</span><span>Nagoya</span>
           <span>Kyoto</span><span>Yokohama</span><span>Saitama</span><span>Chiba</span><span>Kawasaki</span>
@@ -688,68 +881,118 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" style="background:#f9fafb;">
+    <section id="faq" aria-labelledby="faq-heading" style="background:#f9fafb;">
       <div class="container">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can foreigners use this service?<span>+</span></div><div class="faq-answer"><p>Absolutely! Designed for international students, workers, and foreigners in Japan. All communication in English.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is disposal legal?<span>+</span></div><div class="faq-answer"><p>100% compliant with Japan's Home Appliance Recycling Law and local regulations.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What payment methods?<span>+</span></div><div class="faq-answer"><p>PayPay, bank transfer, LINE Pay, or cash on pickup. Pay after service.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How fast can you come?<span>+</span></div><div class="faq-answer"><p>Quote within 24 hours. Pickup in 2-7 days. Urgent requests on LINE.</p></div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do you help with checkout?<span>+</span></div><div class="faq-answer"><p>We clear everything to maximize your deposit return. We know what landlords expect.</p></div></div>
+        <h2 id="faq-heading">Frequently Asked Questions About Moving Out in Japan</h2>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0" onkeypress="if(event.key==='Enter')toggleFAQ(this)">
+            Can foreigners use this moving out service?
+            <span aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! Move Out Japan is specifically designed for international students, foreign workers, and expats living in Japan. All communication is available in English, and we understand the unique challenges foreigners face when moving out in Japan.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0" onkeypress="if(event.key==='Enter')toggleFAQ(this)">
+            Is furniture disposal in Japan legal through your service?
+            <span aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, 100% compliant. We follow Japan's Home Appliance Recycling Law and all local waste management regulations. All items are disposed through certified recycling channels. You receive proper documentation if needed for your apartment checkout.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0" onkeypress="if(event.key==='Enter')toggleFAQ(this)">
+            What payment methods do you accept?
+            <span aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We accept PayPay, bank transfer, LINE Pay, and cash on pickup. Payment is made after service completion for your peace of mind. We provide receipts in English and Japanese.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0" onkeypress="if(event.key==='Enter')toggleFAQ(this)">
+            How quickly can I schedule furniture disposal?
+            <span aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We typically respond with a quote within 24 hours. Once confirmed, we can schedule pickup within 2-7 days depending on your location. For urgent moving out situations, contact us on LINE for faster arrangements.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false" role="button" tabindex="0" onkeypress="if(event.key==='Enter')toggleFAQ(this)">
+            Do you help with apartment checkout inspection?
+            <span aria-hidden="true">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>While we don't attend the official inspection, we ensure your apartment is completely cleared of unwanted items. This significantly increases your chances of getting your full deposit back. We understand what Japanese landlords expect.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Contact Form -->
-    <section id="contact-form-section">
+    <section id="contact-form-section" aria-labelledby="contact-heading">
       <div class="container">
-        <h2 class="text-center">Request Free Quote</h2>
-        <p class="text-center" style="margin-bottom:28px;">Tell us what you need to dispose. Reply within 24 hours with total price.</p>
+        <h2 id="contact-heading" class="text-center">Request Your Free Moving Out Quote</h2>
+        <p class="text-center" style="margin-bottom:28px;">Tell us what you need to dispose, and we'll reply within 24 hours with a total price and payment options.</p>
         <div class="contact-form">
-          <form id="priceCheckForm" onsubmit="return handleSubmit(event)">
+          <form id="priceCheckForm" onsubmit="return handleSubmit(event)" novalidate>
             <div class="form-group">
               <label for="name">Your Name *</label>
-              <input type="text" id="name" name="name" placeholder="Your full name" required>
+              <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
             </div>
             <div class="form-group">
               <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
             </div>
             <div class="form-group">
-              <label for="location">Your Location *</label>
+              <label for="location">Your Location in Japan *</label>
               <select id="location" name="location" required>
                 <option value="">Select your area...</option>
-                <option>Fukuoka</option><option>Saga</option><option>Tokyo</option>
-                <option>Osaka</option><option>Nagoya</option><option>Kyoto</option>
-                <option>Yokohama</option><option>Saitama</option><option>Chiba</option>
-                <option>Kawasaki</option><option>Sapporo</option><option>Kobe</option>
-                <option>Hiroshima</option><option>Sendai</option><option>Other</option>
+                <option value="Fukuoka">Fukuoka</option>
+                <option value="Saga">Saga</option>
+                <option value="Tokyo">Tokyo</option>
+                <option value="Osaka">Osaka</option>
+                <option value="Nagoya">Nagoya</option>
+                <option value="Kyoto">Kyoto</option>
+                <option value="Yokohama">Yokohama</option>
+                <option value="Saitama">Saitama</option>
+                <option value="Chiba">Chiba</option>
+                <option value="Kawasaki">Kawasaki</option>
+                <option value="Sapporo">Sapporo</option>
+                <option value="Kobe">Kobe</option>
+                <option value="Hiroshima">Hiroshima</option>
+                <option value="Sendai">Sendai</option>
+                <option value="Other">Other (please specify in items)</option>
               </select>
             </div>
             <div class="form-group">
               <label for="items">Items to Dispose *</label>
-              <textarea id="items" name="items" placeholder="e.g., fridge 200L, washing machine, desk, futon..." rows="4" required></textarea>
+              <textarea id="items" name="items" placeholder="Describe your items: e.g., fridge 200L, washing machine, wooden desk, single futon..." rows="4" required></textarea>
             </div>
             <button type="submit" class="submit-btn" id="submitBtn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               <span id="btnText">Send for Free Price Check</span>
             </button>
             <p class="text-center" style="margin-top:18px; font-size:0.95rem;">
-              ⚡ Faster: Send photos on <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener" style="color:#06c755; font-weight:600;">LINE (@704xslsr)</a>
+              ⚡ Faster response: Send photos directly on <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener noreferrer" style="color:#06c755; font-weight:600;">LINE (@704xslsr)</a>
             </p>
           </form>
 
-          <div id="formSuccess" style="display:none; text-align:center; padding:40px 20px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" style="width:64px;height:64px;margin-bottom:16px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <h3>Request Sent Successfully!</h3>
-            <p>We'll reply within 24 hours with total price and payment options.</p>
-            <p style="font-weight:600; margin-top:12px;">📧 Check your inbox for confirmation.</p>
+          <div id="formSuccess" style="display: none; text-align: center; padding: 40px 20px;" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" style="width:64px;height:64px;margin-bottom:16px;" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <h3>Quote Request Sent Successfully!</h3>
+            <p>We'll get back to you within 24 hours with a total price and payment details.</p>
+            <p style="font-weight:600; margin-top:12px;">📧 A confirmation email has been sent to your inbox.</p>
             <button onclick="resetForm()" style="margin-top:16px; padding:12px 24px; background:#111827; color:white; border:none; border-radius:12px; cursor:pointer; font-weight:600;">Send Another Request</button>
           </div>
 
-          <div id="formError" style="display:none; text-align:center; padding:40px 20px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width:64px;height:64px;margin-bottom:16px;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <div id="formError" style="display: none; text-align: center; padding: 40px 20px;" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width:64px;height:64px;margin-bottom:16px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
             <h3>Oops! Something went wrong.</h3>
-            <p id="errorMessage">Please try again or contact us on <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener" style="color:#06c755; font-weight:600;">LINE (@704xslsr)</a>.</p>
+            <p id="errorMessage">Please try again or contact us directly on <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener noreferrer" style="color:#06c755; font-weight:600;">LINE (@704xslsr)</a> for immediate assistance.</p>
             <button onclick="resetForm()" style="margin-top:16px; padding:12px 24px; background:#111827; color:white; border:none; border-radius:12px; cursor:pointer; font-weight:600;">Try Again</button>
           </div>
         </div>
@@ -757,11 +1000,17 @@
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <div class="container">
       <p>📧 bistadinesh642@gmail.com &nbsp;|&nbsp; 📱 LINE: @704xslsr</p>
       <p style="font-size:0.9rem; margin-top:8px;">💳 PayPay · Bank Transfer · LINE Pay · Cash</p>
-      <p style="font-size:0.85rem; color:#9ca3af; margin-top:16px;">© 2024 Move Out Japan — Foreigner-friendly furniture disposal & moving support</p>
+      <nav aria-label="Footer navigation" style="margin-top:16px;">
+        <a href="/" style="color:#4b5563; text-decoration:none; margin:0 12px;">Home</a>
+        <a href="#how-it-works" style="color:#4b5563; text-decoration:none; margin:0 12px;">How It Works</a>
+        <a href="#pricing" style="color:#4b5563; text-decoration:none; margin:0 12px;">Pricing</a>
+        <a href="#faq" style="color:#4b5563; text-decoration:none; margin:0 12px;">FAQ</a>
+      </nav>
+      <p style="font-size:0.85rem; color:#9ca3af; margin-top:16px;">© 2024 Move Out Japan — Foreigner-friendly furniture disposal & moving support in Japan</p>
     </div>
   </footer>
 
@@ -769,7 +1018,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
   <script>
-    // INITIALIZE EMAILJS
+    // Initialize EmailJS
     (function() {
       try {
         emailjs.init('Hx0NbUvVMgUQ2odp_');
@@ -779,18 +1028,26 @@
       }
     })();
 
-    // MOBILE MENU
+    // Mobile Menu Toggle
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
+      const navLinks = document.getElementById('navLinks');
+      const hamburger = document.querySelector('.hamburger');
+      navLinks.classList.toggle('active');
+      const isExpanded = navLinks.classList.contains('active');
+      hamburger.setAttribute('aria-expanded', isExpanded);
     }
 
-    // FAQ TOGGLE
-    function toggleFAQ(el) {
-      el.parentElement.classList.toggle('open');
+    // FAQ Toggle
+    function toggleFAQ(element) {
+      const item = element.parentElement;
+      const isOpen = item.classList.contains('open');
+      item.classList.toggle('open');
+      element.setAttribute('aria-expanded', !isOpen);
     }
 
-    // FORM HANDLING
+    // Form Reset
     function resetForm() {
+      document.getElementById('priceCheckForm').reset();
       document.getElementById('priceCheckForm').style.display = 'block';
       document.getElementById('formSuccess').style.display = 'none';
       document.getElementById('formError').style.display = 'none';
@@ -798,19 +1055,20 @@
       document.getElementById('btnText').textContent = 'Send for Free Price Check';
     }
 
+    // Form Submission
     async function handleSubmit(event) {
       event.preventDefault();
       
-      const btn = document.getElementById('submitBtn');
+      const submitBtn = document.getElementById('submitBtn');
       const form = document.getElementById('priceCheckForm');
       const btnText = document.getElementById('btnText');
       
       // Show loading
-      btn.disabled = true;
+      submitBtn.disabled = true;
       btnText.textContent = 'Sending...';
       
-      // Get form data
-      const data = {
+      // Collect form data
+      const formData = {
         name: document.getElementById('name').value.trim(),
         email: document.getElementById('email').value.trim(),
         location: document.getElementById('location').value,
@@ -818,65 +1076,67 @@
         date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Tokyo' })
       };
 
-      console.log('📤 Sending form...', data);
+      console.log('📤 Sending form...', formData);
 
       try {
         // Send admin notification
-        console.log('→ Admin email...');
         await emailjs.send('service_sbebnme', 'template_73vpqgp', {
           to_email: 'bistadinesh642@gmail.com',
-          from_name: data.name,
-          from_email: data.email,
-          location: data.location,
-          items: data.items,
-          submission_date: data.date,
-          reply_to: data.email
+          from_name: formData.name,
+          from_email: formData.email,
+          location: formData.location,
+          items: formData.items,
+          submission_date: formData.date,
+          reply_to: formData.email
         });
-        console.log('✅ Admin sent');
+        console.log('✅ Admin notification sent');
 
-        // Try user confirmation (optional)
+        // Try to send user confirmation (non-critical)
         try {
-          console.log('→ User confirmation...');
           await emailjs.send('service_sbebnme', 'template_a6nc3t4', {
-            to_email: data.email,
-            to_name: data.name,
-            items: data.items,
-            location: data.location,
+            to_email: formData.email,
+            to_name: formData.name,
+            items: formData.items,
+            location: formData.location,
             reply_message: 'We received your request! We\'ll reply within 24 hours with your total price.\n\nThank you,\nMove Out Japan Team\n📱 LINE: @704xslsr',
             from_name: 'Move Out Japan'
           });
-          console.log('✅ User sent');
-        } catch(e) {
-          console.warn('⚠️ User email failed (not critical):', e);
+          console.log('✅ User confirmation sent');
+        } catch(userErr) {
+          console.warn('⚠️ User confirmation email failed (non-critical):', userErr);
         }
 
         // Show success
         form.style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
         document.getElementById('formError').style.display = 'none';
-        console.log('🎉 Done!');
+        console.log('🎉 Form submission complete!');
 
       } catch(err) {
-        console.error('❌ Failed:', err);
+        console.error('❌ Form submission failed:', err);
         form.style.display = 'none';
         document.getElementById('formError').style.display = 'block';
         document.getElementById('errorMessage').innerHTML = 
-          'Please <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener" style="color:#06c755; font-weight:600;">message us on LINE (@704xslsr)</a> for immediate help.';
+          'Please <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener noreferrer" style="color:#06c755; font-weight:600;">message us on LINE (@704xslsr)</a> for immediate help.';
       }
 
       // Reset button
-      btn.disabled = false;
+      submitBtn.disabled = false;
       btnText.textContent = 'Send for Free Price Check';
       
       return false;
     }
 
-    // Close mobile menu on click
+    // Close mobile menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('active');
+        document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
       });
     });
+
+    console.log('🏠 Move Out Japan - Ready to help foreigners in Japan!');
+    console.log('📱 Quick support: LINE @704xslsr');
   </script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 # robots.txt for Move Out Japan
-# https://moveoutjapan.netlify.app
+# https://moveoutjapan.pages.dev
+# Hosted on Cloudflare Pages
 
-# Allow all crawlers
+# Allow all major crawlers
 User-agent: *
 Allow: /
 
@@ -11,12 +12,6 @@ Disallow: /api/
 Disallow: /private/
 Disallow: /temp/
 Disallow: /drafts/
-
-# Block specific file types from indexing
-Disallow: /*.log$
-Disallow: /*.bak$
-Disallow: /*.zip$
-Disallow: /*.tar.gz$
 
 # Specific rules for Googlebot
 User-agent: Googlebot
@@ -63,12 +58,12 @@ User-agent: DotBot
 Allow: /
 Crawl-delay: 20
 
-# Block known spam/crap bots
+# Block known spam bots
 User-agent: PetalBot
 Disallow: /
 
 User-agent: YandexBot
 Disallow: /
 
-# Sitemap location
-Sitemap: https://moveoutjapan.netlify.app/sitemap.xml
+# Sitemap location (Cloudflare Pages domain)
+Sitemap: https://moveoutjapan.pages.dev/sitemap.xml
