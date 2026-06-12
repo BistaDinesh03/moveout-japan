@@ -26,7 +26,6 @@
             background: white;
             border-radius: 12px;
             padding: 40px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         h1 {
@@ -59,25 +58,25 @@
             list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 8px;
+            gap: 4px;
         }
         
         .url-list li {
             margin: 0;
         }
         
+        /* THIS IS THE KEY FIX - matches your footer link style exactly */
         .url-list a {
             display: block;
-            padding: 8px 0;
-            color: #4b5563;
-            text-decoration: none;
+            padding: 6px 0;
+            color: #4b5563 !important;
+            text-decoration: none !important;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
         }
         
         .url-list a:hover {
-            color: #1f2937;
-            text-decoration: none;
+            color: #1f2937 !important;
+            text-decoration: none !important;
         }
         
         hr {
@@ -93,22 +92,24 @@
             border-top: 1px solid #e5e7eb;
         }
         
+        /* Match your exact footer link style */
         .footer-links a {
-            color: #4b5563;
-            text-decoration: none;
+            color: #4b5563 !important;
+            text-decoration: none !important;
             margin: 0 12px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
         
         .footer-links a:hover {
-            color: #1f2937;
+            color: #1f2937 !important;
+            text-decoration: none !important;
         }
         
         .copyright {
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #9ca3af;
-            margin-top: 20px;
+            margin-top: 16px;
         }
         
         @media (max-width: 640px) {
