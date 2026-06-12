@@ -1,15 +1,69 @@
-# Move Out Japan robots.txt
+# robots.txt for Move Out Japan
 # https://moveoutjapan.pages.dev
+# Hosted on Cloudflare Pages
 
+# Allow all major crawlers
 User-agent: *
 Allow: /
 
-# Private or non-public areas
+# Block sensitive paths
 Disallow: /admin/
 Disallow: /api/
 Disallow: /private/
 Disallow: /temp/
 Disallow: /drafts/
 
-# Sitemap
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Googlebot Image crawler
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 1
+
+# Bing crawler
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Crawl-delay: 5
+
+# Yahoo Japan crawler
+User-agent: Slurp
+Allow: /
+Crawl-delay: 5
+
+# Baidu (China) crawler
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 10
+
+# SEO tool crawlers - allow but slow down
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 20
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 20
+
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 20
+
+User-agent: DotBot
+Allow: /
+Crawl-delay: 20
+
+# Block known spam bots
+User-agent: PetalBot
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+# Sitemap location (Cloudflare Pages domain)
 Sitemap: https://moveoutjapan.pages.dev/sitemap.xml
