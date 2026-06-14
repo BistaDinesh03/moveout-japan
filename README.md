@@ -1,101 +1,75 @@
 # 🏠 Move Out Japan
 
-**Furniture Disposal & Moving Support for Foreigners in Japan**
+**English-speaking furniture disposal and moving support for foreigners in Japan.**
 
-English-speaking support for foreigners moving out in Japan. Furniture disposal, appliance recycling, apartment checkout help, and moving support across all major Japanese cities.
-
----
-
-## 🌐 Live Website
-
-👉 **[https://moveoutjapan.pages.dev](https://moveoutjapan.pages.dev)**
+[![Website](https://img.shields.io/badge/website-moveoutjapan.pages.dev-111827?style=flat-square)](https://moveoutjapan.pages.dev)
+[![Status](https://img.shields.io/badge/status-live-success?style=flat-square)](https://moveoutjapan.pages.dev)
+[![License](https://img.shields.io/badge/license-private-red?style=flat-square)]()
 
 ---
 
-## ☁️ Hosting
+## 📋 Table of Contents
 
-Hosted on **Cloudflare Pages** with automatic deployments from GitHub.
-
----
-
-## 📱 Quick Contact
-
-- **LINE**: [@704xslsr](https://line.me/ti/p/@704xslsr)
-- **Email**: bistadinesh642@gmail.com
-- **Service Areas**: Fukuoka, Saga, Tokyo, Osaka, Nagoya, Kyoto, Yokohama, Saitama, Chiba, Kawasaki, Sapporo, Kobe, Hiroshima, Sendai
-
----
-
-## 🚀 Features
-
-- ✅ English support for foreigners
-- ✅ Legal furniture & appliance disposal
-- ✅ Apartment checkout assistance
-- ✅ Transparent pricing (¥8,000 - ¥10,000)
-- ✅ PayPay, LINE Pay, Bank Transfer, Cash
-- ✅ Free quote within 24 hours
-- ✅ Pickup available in 2-7 days
+- [About](#about)
+- [Services](#services)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [SEO Features](#seo-features)
+- [Getting Started](#getting-started)
+- [How to Add a Blog Post](#how-to-add-a-blog-post)
+- [How to Update Navigation](#how-to-update-navigation)
+- [Deployment](#deployment)
+- [Contact Form Setup](#contact-form-setup)
+- [Performance](#performance)
+- [Contact](#contact)
 
 ---
 
-## 🔧 Tech Stack
+## About
 
-- HTML5, CSS3, JavaScript
-- EmailJS for form handling
-- Cloudflare Pages for hosting & CDN
-- Structured Data (JSON-LD) for SEO
-- Progressive Web App (PWA) ready
+Move Out Japan helps **international students, foreign workers, and expats** dispose of furniture and appliances legally and affordably when moving out in Japan.
 
----
-
-## 📦 Deployment
-
-This site automatically deploys to Cloudflare Pages when pushed to the `main` branch on GitHub.
-
-### Connect GitHub to Cloudflare Pages:
-1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
-2. Click **Workers & Pages** → **Create application** → **Pages**
-3. Connect your GitHub repository
-4. Set build settings:
-   - **Build command**: (leave empty)
-   - **Build output directory**: `/`
-   - **Root directory**: `/`
-5. Click **Save and Deploy**
+### Why Foreigners Choose Us:
+- 🗣️ **English communication** — no Japanese required
+- ⚖️ **100% legal disposal** — compliant with Japan's Home Appliance Recycling Law
+- 💰 **Transparent pricing** — fixed quotes, no hidden fees
+- 🚛 **Nationwide coverage** — Fukuoka, Tokyo, Osaka, Nagoya, and more
+- ⚡ **Fast response** — quotes within 24 hours, pickup within 2-7 days
 
 ---
 
-## 📈 SEO Optimization
+## Services
 
-- Structured data for Organization, LocalBusiness, FAQ
-- Optimized meta tags for Google & social media
-- Sitemap.xml for search engines
-- Robots.txt for crawl control
-- Mobile-responsive design
-- Performance optimized via Cloudflare CDN
-
----
-
-## 📂 Project Structure
-
-move-out-japan/
-├── index.html # Main website
-├── manifest.json # PWA manifest
-├── robots.txt # Crawl rules
-├── sitemap.xml # URL listing
-├── README.md # Documentation
-├── .gitignore # Git ignore rules
-└── favicon/ # Icons folder
-├── favicon.ico
-├── favicon-16x16.png
-├── favicon-32x32.png
-├── apple-touch-icon.png
-├── android-chrome-192x192.png
-└── android-chrome-512x512.png
-
-text
+| Service | Description |
+|---------|-------------|
+| 🪑 Furniture Disposal | Legal disposal of beds, desks, chairs, sofas, tables, shelves |
+| 🔌 Appliance Recycling | Fridges, washing machines, microwaves, TVs, AC units |
+| 🏠 Apartment Clearing | Complete apartment clearing for move-out inspection |
+| 📋 Move-Out Consultation | Utility cancellation guidance, deposit protection, checkout help |
+| 📦 Packing Assistance | Help packing belongings for moving or shipping |
+| 🗑️ Bulk Trash Disposal | Large quantities of mixed items handled efficiently |
 
 ---
 
-## 📄 License
+## Tech Stack
 
+| Category | Technology |
+|----------|------------|
+| **Frontend** | HTML5, CSS3, Vanilla JavaScript |
+| **Hosting** | Cloudflare Pages |
+| **Fonts** | Google Fonts (Inter) |
+| **Forms** | EmailJS |
+| **SEO** | Schema.org structured data, Open Graph, Twitter Cards |
+| **Analytics** | Cloudflare Web Analytics |
+
+---
+
+Contact
+Channel	Details
+📧 Email	bistadinesh642@gmail.com
+📱 LINE	@704xslsr
+🌐 Website	moveoutjapan.pages.dev
+License
 © 2024 Move Out Japan. All rights reserved.
+
+Built with ❤️ for foreigners living in Japan.

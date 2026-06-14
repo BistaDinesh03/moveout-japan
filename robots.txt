@@ -1,10 +1,7 @@
-# robots.txt for Move Out Japan
-# https://moveoutjapan.pages.dev
-
-# Allow all crawlers to index everything
 User-agent: *
 Allow: /
+Disallow: /_includes/
+Disallow: /assets/
 
-# Sitemap locations - HTML sitemap helps Google discover all pages
 Sitemap: https://moveoutjapan.pages.dev/sitemap.xml
-Sitemap: https://moveoutjapan.pages.dev/sitemap.html
+Host: moveoutjapan.pages.dev

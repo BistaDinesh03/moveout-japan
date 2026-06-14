@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitemap - Move Out Japan</title>
     <meta name="description" content="Complete sitemap for Move Out Japan - furniture disposal, moving support, and apartment checkout services in Japan.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://moveoutjapan.pages.dev/sitemap.html">
+    
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <link rel="shortcut icon" href="/favicon/favicon.ico">
+    
     <style>
         * {
             margin: 0;
@@ -13,70 +20,86 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: #4b5563;
             background: #f9fafb;
             padding: 40px 20px;
+            -webkit-font-smoothing: antialiased;
         }
         
         .container {
             max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            padding: 40px;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        }
+        
+        .sitemap-header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e7eb;
         }
         
         h1 {
             font-size: 2rem;
-            color: #1f2937;
+            color: #111827;
             margin-bottom: 8px;
-            font-weight: 600;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
         
         .last-updated {
             color: #9ca3af;
-            font-size: 0.85rem;
-            margin-bottom: 32px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+        }
+        
+        .sitemap-intro {
+            margin-bottom: 36px;
+            font-size: 1.05rem;
+            color: #334155;
         }
         
         .sitemap-section {
-            margin-bottom: 32px;
+            margin-bottom: 36px;
         }
         
         h2 {
-            font-size: 1.25rem;
-            color: #374151;
-            margin-bottom: 16px;
-            font-weight: 600;
+            font-size: 1.15rem;
+            color: #111827;
+            margin-bottom: 14px;
+            font-weight: 700;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f3f4f6;
         }
         
         .url-list {
             list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 4px;
+            gap: 2px;
         }
         
         .url-list li {
             margin: 0;
         }
         
-        /* THIS IS THE KEY FIX - matches your footer link style exactly */
         .url-list a {
             display: block;
-            padding: 6px 0;
-            color: #4b5563 !important;
-            text-decoration: none !important;
+            padding: 7px 12px;
+            color: #4b5563;
+            text-decoration: none;
             font-size: 0.95rem;
+            border-radius: 6px;
+            transition: all 0.15s;
         }
         
         .url-list a:hover {
-            color: #1f2937 !important;
-            text-decoration: none !important;
+            color: #111827;
+            background: #f9fafb;
+            text-decoration: none;
         }
         
         hr {
@@ -85,31 +108,42 @@
             border-top: 1px solid #e5e7eb;
         }
         
-        .footer-links {
+        .footer-section {
             text-align: center;
             margin-top: 32px;
-            padding-top: 20px;
+            padding-top: 24px;
             border-top: 1px solid #e5e7eb;
         }
         
-        /* Match your exact footer link style */
-        .footer-links a {
-            color: #4b5563 !important;
-            text-decoration: none !important;
-            margin: 0 12px;
-            font-size: 0.9rem;
+        .footer-section a {
+            color: #4b5563;
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.15s;
         }
         
-        .footer-links a:hover {
-            color: #1f2937 !important;
-            text-decoration: none !important;
+        .footer-section a:hover {
+            color: #111827;
+            text-decoration: none;
         }
         
         .copyright {
             text-align: center;
             font-size: 0.85rem;
             color: #9ca3af;
-            margin-top: 16px;
+            margin-top: 18px;
+        }
+        
+        .total-pages {
+            display: inline-block;
+            background: #f3f4f6;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-left: 8px;
         }
         
         @media (max-width: 640px) {
@@ -120,83 +154,100 @@
             .url-list {
                 grid-template-columns: 1fr;
             }
+            
+            .footer-section a {
+                display: block;
+                margin: 8px 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Sitemap</h1>
-        <div class="last-updated">Last updated: June 12, 2026</div>
+        
+        <!-- Header -->
+        <div class="sitemap-header">
+            <h1>📋 Sitemap</h1>
+            <p class="last-updated">Last updated: June 14, 2026</p>
+        </div>
+        
+        <p class="sitemap-intro">
+            Complete overview of all pages on Move Out Japan. Use this page to find any information about our furniture disposal, moving support, and apartment checkout services for foreigners in Japan.
+        </p>
         
         <!-- Main Pages -->
         <div class="sitemap-section">
-            <h2>Main Pages</h2>
+            <h2>Main Pages <span class="total-pages">5 pages</span></h2>
             <ul class="url-list">
-                <li><a href="https://moveoutjapan.pages.dev/">Home</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/about">About</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/contact">Contact</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/faq">FAQ</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/pricing">Pricing</a></li>
+                <li><a href="/">🏠 Home</a></li>
+                <li><a href="/pages/how-it-works">📋 How It Works</a></li>
+                <li><a href="/pages/services">🛠️ Services</a></li>
+                <li><a href="/pages/pricing">💰 Pricing</a></li>
+                <li><a href="/pages/faq">❓ FAQ</a></li>
             </ul>
         </div>
         
-        <!-- Services -->
+        <!-- Contact -->
         <div class="sitemap-section">
-            <h2>Services</h2>
+            <h2>Contact & Support</h2>
             <ul class="url-list">
-                <li><a href="https://moveoutjapan.pages.dev/services/furniture-disposal">Furniture Disposal</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/services/moving-support">Moving Support</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/services/apartment-checkout">Apartment Checkout</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/services/foreigner-support-japan">Foreigner Support</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/services/appliance-disposal">Appliance Disposal</a></li>
-            </ul>
-        </div>
-        
-        <!-- Locations -->
-        <div class="sitemap-section">
-            <h2>Service Areas</h2>
-            <ul class="url-list">
-                <li><a href="https://moveoutjapan.pages.dev/locations/fukuoka">Fukuoka</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/locations/saga">Saga</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/locations/tokyo">Tokyo</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/locations/osaka">Osaka</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/locations/nagoya">Nagoya</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/locations/kyoto">Kyoto</a></li>
+                <li><a href="/contact">📧 Get Free Quote</a></li>
+                <li><a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener">📱 LINE (@704xslsr)</a></li>
             </ul>
         </div>
         
         <!-- Blog -->
         <div class="sitemap-section">
-            <h2>Blog & Guides</h2>
+            <h2>Blog & Guides <span class="total-pages">10 articles</span></h2>
             <ul class="url-list">
-                <li><a href="https://moveoutjapan.pages.dev/blog">Blog Home</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/blog/how-to-dispose-furniture-in-japan">How to Dispose Furniture in Japan</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/blog/moving-out-guide-foreign-students-japan">Moving Out Guide for Foreign Students</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/blog/apartment-checkout-guide-japan-foreigners">Apartment Checkout Guide</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/blog/garbage-disposal-rules-japan-foreigners">Garbage Disposal Rules in Japan</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/blog/sodai-gomi-large-item-disposal-japan">Sodai Gomi: Large Item Disposal</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/blog/recycling-laws-japan-foreigners-guide">Recycling Laws in Japan</a></li>
+                <li><a href="/blog">📚 Blog Home</a></li>
+                <li><a href="/blog/posts/complete-moving-out-checklist-japan.html">Complete Moving Out Checklist in Japan</a></li>
+                <li><a href="/blog/posts/how-to-dispose-furniture-japan.html">How to Dispose of Furniture in Japan Legally</a></li>
+                <li><a href="/blog/posts/cancel-electricity-japan.html">How to Cancel Electricity in Japan</a></li>
+                <li><a href="/blog/posts/cancel-gas-service-japan.html">How to Cancel Gas Service in Japan</a></li>
+                <li><a href="/blog/posts/apartment-checkout-guide-foreigners.html">Apartment Checkout Guide for Foreigners</a></li>
+                <li><a href="/blog/posts/sayonara-sale-guide-japan.html">Sayonara Sale Guide Japan</a></li>
+                <li><a href="/blog/posts/avoid-moving-out-fees-japan.html">How to Avoid Moving-Out Fees in Japan</a></li>
+                <li><a href="/blog/posts/foreigner-relocation-guide-japan.html">Foreigner Relocation Guide Japan</a></li>
+                <li><a href="/blog/posts/best-packing-tips-japan.html">Best Packing Tips for Moving in Japan</a></li>
+                <li><a href="/blog/posts/utility-cancellation-checklist-japan.html">Utility Cancellation Checklist Japan</a></li>
             </ul>
         </div>
         
-        <!-- Legal -->
+        <!-- Service Areas -->
         <div class="sitemap-section">
-            <h2>Legal</h2>
+            <h2>Service Areas <span class="total-pages">14 cities</span></h2>
             <ul class="url-list">
-                <li><a href="https://moveoutjapan.pages.dev/privacy-policy">Privacy Policy</a></li>
-                <li><a href="https://moveoutjapan.pages.dev/terms-of-service">Terms of Service</a></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Fukuoka</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Saga</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Tokyo</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Osaka</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Nagoya</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Kyoto</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Yokohama</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Saitama</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Chiba</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Kawasaki</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Sapporo</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Kobe</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Hiroshima</span></li>
+                <li><span style="color:#6b7280; font-size:0.95rem;">Sendai</span></li>
             </ul>
         </div>
         
         <hr>
         
-        <div class="footer-links">
-            <a href="https://moveoutjapan.pages.dev/">Home</a>
-            <a href="https://moveoutjapan.pages.dev/sitemap.xml">XML Sitemap</a>
+        <!-- Footer -->
+        <div class="footer-section">
+            <a href="/">Home</a>
+            <a href="/contact">Contact</a>
+            <a href="/blog">Blog</a>
+            <a href="/sitemap.xml">XML Sitemap</a>
         </div>
         <div class="copyright">
             © 2024 Move Out Japan — Foreigner-friendly furniture disposal & moving support in Japan
         </div>
+        
     </div>
 </body>
 </html>
