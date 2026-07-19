@@ -1,20 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://moveoutjapan.pages.dev/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/contact</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/pages/how-it-works</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/pages/services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/pages/pricing</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/pages/faq</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/complete-moving-out-checklist-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/how-to-dispose-furniture-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/cancel-electricity-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/cancel-gas-service-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/apartment-checkout-guide-foreigners.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/sayonara-sale-guide-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/avoid-moving-out-fees-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/foreigner-relocation-guide-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/best-packing-tips-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://moveoutjapan.pages.dev/blog/posts/utility-cancellation-checklist-japan.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/contact</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/pages/how-it-works</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/pages/services</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/pages/pricing</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/pages/faq</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/complete-moving-out-checklist-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/how-to-dispose-furniture-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/cancel-electricity-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/cancel-gas-service-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/apartment-checkout-guide-foreigners.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/sayonara-sale-guide-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/avoid-moving-out-fees-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/foreigner-relocation-guide-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/best-packing-tips-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://moveoutjapan.pages.dev/blog/posts/utility-cancellation-checklist-japan.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
