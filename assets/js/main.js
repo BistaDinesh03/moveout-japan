@@ -1,6 +1,7 @@
 /* ============================================
-   MOVE OUT JAPAN - MAIN JAVASCRIPT v2.0
-   Shared across all pages
+   MOVE OUT JAPAN - MAIN JAVASCRIPT v3.0
+   Fixed: All internal links now use .html extension
+   for consistency with sitemap.xml and canonical URLs
    ============================================ */
 
 // ========== BLOG DATA STORE ==========
@@ -107,12 +108,13 @@ function loadHeader() {
             <span></span><span></span><span></span>
           </button>
           <div class="nav-links" id="navLinks" role="menubar">
-            <a href="/pages/how-it-works" role="menuitem" class="${currentPath.includes('/how-it-works') ? 'active' : ''}">How It Works</a>
-            <a href="/pages/services" role="menuitem" class="${currentPath.includes('/services') ? 'active' : ''}">Services</a>
-            <a href="/pages/pricing" role="menuitem" class="${currentPath.includes('/pricing') ? 'active' : ''}">Pricing</a>
-            <a href="/pages/faq" role="menuitem" class="${currentPath.includes('/faq') ? 'active' : ''}">FAQ</a>
-            <a href="/blog" role="menuitem" class="${currentPath.includes('/blog') ? 'active' : ''}">Blog</a>
-            <a href="/contact" class="nav-cta" role="menuitem">Get Free Quote</a>
+            <!-- FIXED: Added .html to all links -->
+            <a href="/pages/how-it-works.html" role="menuitem" class="${currentPath.includes('/how-it-works') ? 'active' : ''}">How It Works</a>
+            <a href="/pages/services.html" role="menuitem" class="${currentPath.includes('/services') ? 'active' : ''}">Services</a>
+            <a href="/pages/pricing.html" role="menuitem" class="${currentPath.includes('/pricing') ? 'active' : ''}">Pricing</a>
+            <a href="/pages/faq.html" role="menuitem" class="${currentPath.includes('/faq') ? 'active' : ''}">FAQ</a>
+            <a href="/blog/index.html" role="menuitem" class="${currentPath.includes('/blog') ? 'active' : ''}">Blog</a>
+            <a href="/contact.html" class="nav-cta" role="menuitem">Get Free Quote</a>
           </div>
         </div>
       </nav>
@@ -133,13 +135,14 @@ function loadFooter() {
         <p>📧 bistadinesh642@gmail.com &nbsp;|&nbsp; 📱 LINE: @704xslsr</p>
         <p style="font-size:0.9rem; margin-top:8px;">💳 PayPay · Bank Transfer · LINE Pay · Cash</p>
         <nav aria-label="Footer navigation" class="footer-nav">
+          <!-- FIXED: Added .html to all links -->
           <a href="/">Home</a>
-          <a href="/pages/how-it-works">How It Works</a>
-          <a href="/pages/services">Services</a>
-          <a href="/pages/pricing">Pricing</a>
-          <a href="/pages/faq">FAQ</a>
-          <a href="/blog">Blog</a>
-          <a href="/contact">Contact</a>
+          <a href="/pages/how-it-works.html">How It Works</a>
+          <a href="/pages/services.html">Services</a>
+          <a href="/pages/pricing.html">Pricing</a>
+          <a href="/pages/faq.html">FAQ</a>
+          <a href="/blog/index.html">Blog</a>
+          <a href="/contact.html">Contact</a>
           <a href="/sitemap.html">Sitemap</a>
           <a href="/sitemap.xml">XML</a>
         </nav>
@@ -262,6 +265,7 @@ function getSortedPosts() {
 }
 
 function createBlogCard(post) {
+  // FIXED: Already uses .html - kept as is
   return `
     <div class="card blog-card" onclick="window.location.href='/blog/posts/${post.slug}.html'" role="link" tabindex="0" onkeydown="if(event.key==='Enter')window.location.href='/blog/posts/${post.slug}.html'">
       <span class="blog-category">${post.category}</span>
