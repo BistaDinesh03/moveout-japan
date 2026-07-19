@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
+
 Disallow: /_includes/
 Disallow: /assets/
 
 Sitemap: https://moveoutjapan.pages.dev/sitemap.xml
-Host: moveoutjapan.pages.dev
