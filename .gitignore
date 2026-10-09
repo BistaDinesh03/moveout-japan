@@ -19,15 +19,33 @@ desktop.ini
 
 # Node modules (if any)
 node_modules/
-package-lock.json
-yarn.lock
+# NOTE: lockfiles are deliberately NOT ignored — if a package manager is ever
+# introduced, its lockfile must be committed or builds stop being reproducible.
+# (Previously package-lock.json and yarn.lock were ignored here.)
 
 # Environment files
+# This project does not currently read environment variables (no build step,
+# no package.json; EmailJS identifiers are literals in assets/js/main.js).
+# These patterns are defensive: they keep a future .env out of git if one is
+# ever introduced.
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+*.env
+!.env.example
+
+# Sensitive local files - never commit
+# Key material only; no source, template or config file this site needs
+# matches these patterns.
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.ppk
+id_rsa*
+id_ed25519*
+credentials.json
 
 # Logs
 *.log

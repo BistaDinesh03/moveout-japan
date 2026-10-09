@@ -587,6 +587,34 @@ a:hover {
   cursor: not-allowed;
 }
 
+/* ----- FORM VALIDATION (repair Phase 2) ----- */
+.field-error {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #b91c1c;           /* 5.9:1 on #fafafa — passes WCAG AA */
+  font-weight: 500;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"],
+.form-group select[aria-invalid="true"] {
+  border-color: #b91c1c;
+  background: #fff;
+}
+
+.form-status {
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 2px solid #b91c1c;
+  background: #fef2f2;
+  color: #7f1d1d;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
 /* ----- BLOG ARTICLE ----- */
 .article-content {
   max-width: 800px;
