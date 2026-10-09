@@ -4,7 +4,7 @@
 
 [![Website](https://img.shields.io/badge/website-moveoutjapan.pages.dev-111827?style=flat-square)](https://moveoutjapan.pages.dev)
 [![Status](https://img.shields.io/badge/status-live-success?style=flat-square)](https://moveoutjapan.pages.dev)
-[![License](https://img.shields.io/badge/license-private-red?style=flat-square)]()
+[![License](https://img.shields.io/badge/license-private-red?style=flat-square)](https://github.com/BistaDinesh03/moveout-japan)
 
 ---
 
@@ -107,7 +107,7 @@ moveout-japan/
 ├── index.html                 Homepage (hero, process, pricing, FAQ, quote form)
 ├── contact.html               Standalone quote form page  → /contact
 ├── privacy.html               Privacy notice              → /privacy
-├── 404.html                   Not-found page (served with a real 404 status)
+├── 404.html                   Not-found page (404 status *if* SPA fallback is off)
 ├── sitemap.html               Human-readable sitemap      → /sitemap
 ├── sitemap.xml                XML sitemap
 ├── robots.txt                 Allow-all + sitemap pointer
@@ -202,11 +202,16 @@ installed, and there is no `package.json`.
 cd D:\Dev\Projects\moveout-japan
 
 # Run the whole suite
-node --test tests/
+node --test
 
 # Run one file
 node --test tests/quote-form.test.js
 ```
+
+> `node --test tests/` (pointing at the directory) does **not** work — Node
+> tries to load `tests` as a module and exits with `Cannot find module`.
+> Run bare `node --test` from the repository root instead; it discovers all
+> five files automatically.
 
 Available test files:
 
