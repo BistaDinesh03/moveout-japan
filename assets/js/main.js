@@ -8,16 +8,27 @@
 // Add new posts here - they auto-appear everywhere!
 //
 // REPAIR NOTE: this catalogue previously advertised 10 articles. Only
-// `how-to-dispose-furniture-japan` has ever existed as real content in this
+// `how-to-dispose-furniture-japan` had ever existed as real content in this
 // repository (verified across every commit in git history). The other nine
 // entries linked to files that were either never created or were committed
 // as 0-byte placeholders, so they rendered as blank pages or silently
 // returned the homepage. Unpublished entries have been removed rather than
 // replaced with invented articles.
 //
+// UPDATE: `moving-out-checklist-japan` was added as a new, genuinely written
+// article — it is not a restoration of any of the nine unpublished entries.
+//
 // IMPORTANT: `slug` must match a real file at /blog/posts/<slug>.html.
 // `tests/blog.test.js` enforces this — do not add an entry without a file.
 const BLOG_POSTS = [
+  {
+    slug: 'moving-out-checklist-japan',
+    title: 'The Complete Moving Out Checklist in Japan for Foreigners',
+    excerpt: 'From contract review to key return — a practical, ordered moving-out checklist for foreign residents in Japan.',
+    category: 'Moving Out',
+    date: '2026-10-09',
+    image: '/favicon/web-app-manifest-512x512.png'
+  },
   {
     slug: 'how-to-dispose-furniture-japan',
     title: 'How to Dispose of Furniture in Japan Legally and Affordably',
