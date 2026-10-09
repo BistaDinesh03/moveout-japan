@@ -6,7 +6,7 @@
     <title>Sitemap - Move Out Japan</title>
     <meta name="description" content="Complete sitemap for Move Out Japan - furniture disposal, moving support, and apartment checkout services in Japan.">
     <meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="https://moveoutjapan.pages.dev/sitemap.html">
+    <link rel="canonical" href="https://moveoutjapan.pages.dev/sitemap">
     
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
@@ -178,15 +178,16 @@
         
         <!-- Main Pages -->
         <div class="sitemap-section">
-            <h2>Main Pages <span class="total-pages">6 pages</span></h2>
+            <h2>Main Pages <span class="total-pages">7 pages</span></h2>
             <ul class="url-list">
-                <!-- FIXED: All links use .html now -->
+                <!-- Canonical (extensionless) URLs — these are the URLs Cloudflare Pages serves -->
                 <li><a href="/">🏠 Home</a></li>
-                <li><a href="/pages/how-it-works.html">📋 How It Works</a></li>
-                <li><a href="/pages/services.html">🛠️ Services</a></li>
-                <li><a href="/pages/pricing.html">💰 Pricing</a></li>
-                <li><a href="/pages/faq.html">❓ FAQ</a></li>
-                <li><a href="/blog/index.html">📚 Blog</a></li>
+                <li><a href="/pages/how-it-works">📋 How It Works</a></li>
+                <li><a href="/pages/services">🛠️ Services</a></li>
+                <li><a href="/pages/pricing">💰 Pricing</a></li>
+                <li><a href="/pages/faq">❓ FAQ</a></li>
+                <li><a href="/blog">📚 Blog</a></li>
+                <li><a href="/privacy">🔒 Privacy Notice</a></li>
             </ul>
         </div>
         
@@ -194,29 +195,23 @@
         <div class="sitemap-section">
             <h2>Contact & Support</h2>
             <ul class="url-list">
-                <!-- FIXED: Added .html -->
-                <li><a href="/contact.html">📧 Get Free Quote</a></li>
+                <li><a href="/contact">📧 Get Free Quote</a></li>
                 <li><a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener">📱 LINE (@704xslsr)</a></li>
             </ul>
         </div>
         
         <!-- Blog -->
         <div class="sitemap-section">
-            <h2>Blog & Guides <span class="total-pages">11 pages</span></h2>
+            <h2>Blog & Guides <span class="total-pages">2 pages</span></h2>
             <ul class="url-list">
-                <!-- FIXED: /blog → /blog/index.html -->
-                <li><a href="/blog/index.html">📚 Blog Home</a></li>
-                <!-- All blog posts already had .html - kept as is -->
-                <li><a href="/blog/posts/complete-moving-out-checklist-japan.html">Complete Moving Out Checklist in Japan</a></li>
-                <li><a href="/blog/posts/how-to-dispose-furniture-japan.html">How to Dispose of Furniture in Japan Legally</a></li>
-                <li><a href="/blog/posts/cancel-electricity-japan.html">How to Cancel Electricity in Japan</a></li>
-                <li><a href="/blog/posts/cancel-gas-service-japan.html">How to Cancel Gas Service in Japan</a></li>
-                <li><a href="/blog/posts/apartment-checkout-guide-foreigners.html">Apartment Checkout Guide for Foreigners</a></li>
-                <li><a href="/blog/posts/sayonara-sale-guide-japan.html">Sayonara Sale Guide Japan</a></li>
-                <li><a href="/blog/posts/avoid-moving-out-fees-japan.html">How to Avoid Moving-Out Fees in Japan</a></li>
-                <li><a href="/blog/posts/foreigner-relocation-guide-japan.html">Foreigner Relocation Guide Japan</a></li>
-                <li><a href="/blog/posts/best-packing-tips-japan.html">Best Packing Tips for Moving in Japan</a></li>
-                <li><a href="/blog/posts/utility-cancellation-checklist-japan.html">Utility Cancellation Checklist Japan</a></li>
+                <!--
+                  REPAIR NOTE: this list previously advertised 10 articles.
+                  Nine of them never existed in the repository (or were 0-byte
+                  files) and have been unpublished. Only articles with real
+                  content belong here — tests/sitemap.test.js enforces it.
+                -->
+                <li><a href="/blog">📚 Blog Home</a></li>
+                <li><a href="/blog/posts/how-to-dispose-furniture-japan">How to Dispose of Furniture in Japan Legally</a></li>
             </ul>
         </div>
         
@@ -248,8 +243,9 @@
         <div class="footer-section">
             <!-- FIXED: All links use .html -->
             <a href="/">Home</a>
-            <a href="/contact.html">Contact</a>
-            <a href="/blog/index.html">Blog</a>
+            <a href="/contact">Contact</a>
+            <a href="/blog">Blog</a>
+            <a href="/privacy">Privacy</a>
             <a href="/sitemap.xml">XML Sitemap</a>
         </div>
         <div class="copyright">

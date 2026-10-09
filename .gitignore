@@ -19,8 +19,9 @@ desktop.ini
 
 # Node modules (if any)
 node_modules/
-package-lock.json
-yarn.lock
+# NOTE: lockfiles are deliberately NOT ignored — if a package manager is ever
+# introduced, its lockfile must be committed or builds stop being reproducible.
+# (Previously package-lock.json and yarn.lock were ignored here.)
 
 # Environment files
 .env

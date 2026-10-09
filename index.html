@@ -18,15 +18,16 @@
   <meta property="og:url" content="https://moveoutjapan.pages.dev/">
   <meta property="og:title" content="Move Out Japan | Furniture & Moving Support for Foreigners">
   <meta property="og:description" content="English-speaking disposal & moving support for foreigners in Japan. Furniture, appliances, apartment checkout help. Legal, fast, transparent pricing.">
-  <meta property="og:image" content="https://moveoutjapan.pages.dev/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://moveoutjapan.pages.dev/favicon/web-app-manifest-512x512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Move Out Japan">
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Move Out Japan | Furniture & Moving Support for Foreigners">
   <meta name="twitter:description" content="English support for foreigners moving out in Japan. Furniture disposal, apartment checkout help.">
-  <meta name="twitter:image" content="https://moveoutjapan.pages.dev/og-image.jpg">
+  <meta name="twitter:image" content="https://moveoutjapan.pages.dev/favicon/web-app-manifest-512x512.png">
 
   <meta name="theme-color" content="#111827">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -56,7 +57,7 @@
     "@type": "Organization",
     "name": "Move Out Japan",
     "url": "https://moveoutjapan.pages.dev",
-    "logo": "https://moveoutjapan.pages.dev/logo.png",
+    "logo": "https://moveoutjapan.pages.dev/favicon/web-app-manifest-192x192.png",
     "description": "English support for foreigners moving out in Japan.",
     "email": "bistadinesh642@gmail.com",
     "sameAs": ["https://line.me/ti/p/@704xslsr"],
@@ -113,8 +114,8 @@
             <div class="trust-badge"><span class="badge-dot" aria-hidden="true"></span> Legal Disposal</div>
           </div>
           <div class="cta-group">
-            <!-- FIXED: /contact → /contact.html -->
-            <a href="/contact.html" class="cta-btn">
+            <!-- Contact CTA: canonical extensionless URL (served natively by Cloudflare Pages) -->
+            <a href="/contact" class="cta-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
               Get Free Quote
             </a>
@@ -156,7 +157,7 @@
         </div>
         <div class="text-center mt-40">
           <!-- FIXED: Added .html -->
-          <a href="/pages/how-it-works.html" class="cta-btn cta-btn-outline">Learn More About Our Process</a>
+          <a href="/pages/how-it-works" class="cta-btn cta-btn-outline">Learn More About Our Process</a>
         </div>
       </div>
     </section>
@@ -184,7 +185,7 @@
         <div class="grid-3" id="blog-preview-container"></div>
         <div class="text-center mt-40">
           <!-- FIXED: /blog → /blog/index.html -->
-          <a href="/blog/index.html" class="cta-btn cta-btn-outline">Read All Articles</a>
+          <a href="/blog" class="cta-btn cta-btn-outline">Read All Articles</a>
         </div>
       </div>
     </section>
@@ -218,7 +219,7 @@
         </div>
         <div class="text-center mt-40">
           <!-- FIXED: Added .html -->
-          <a href="/pages/pricing.html" class="cta-btn cta-btn-outline">View Full Pricing Details</a>
+          <a href="/pages/pricing" class="cta-btn cta-btn-outline">View Full Pricing Details</a>
         </div>
       </div>
     </section>
@@ -262,7 +263,7 @@
         </div>
         <div class="text-center mt-40">
           <!-- FIXED: Added .html -->
-          <a href="/pages/faq.html" class="cta-btn cta-btn-outline">See All FAQs</a>
+          <a href="/pages/faq" class="cta-btn cta-btn-outline">See All FAQs</a>
         </div>
       </div>
     </section>
@@ -273,14 +274,19 @@
         <h2 id="contact-heading" class="text-center">Request Your Free Moving Out Quote</h2>
         <p class="text-center" style="margin-bottom:28px;">Tell us what you need to dispose, and we'll reply within 24 hours with a total price and payment options.</p>
         <div class="contact-form">
-          <form id="priceCheckForm" onsubmit="return handleSubmit(event)" novalidate>
+          <!-- method="post" so that if JavaScript ever fails to load, the
+               browser cannot place name/email in a URL query string, where it
+               would end up in hosting request logs. With JS active the submit
+               is always prevented before any request is made. -->
+          <form id="priceCheckForm" onsubmit="return handleSubmit(event)" method="post" novalidate>
+            <div id="formStatus" class="form-status" role="alert" aria-live="assertive" style="display:none;"></div>
             <div class="form-group">
               <label for="name">Your Name *</label>
-              <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+              <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" minlength="1" maxlength="100">
             </div>
             <div class="form-group">
               <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email">
+              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" minlength="5" maxlength="254">
             </div>
             <div class="form-group">
               <label for="location">Your Location in Japan *</label>
@@ -291,7 +297,7 @@
             </div>
             <div class="form-group">
               <label for="items">Items to Dispose *</label>
-              <textarea id="items" name="items" placeholder="Describe your items: e.g., fridge 200L, washing machine, wooden desk, single futon..." rows="4" required></textarea>
+              <textarea id="items" name="items" placeholder="Describe your items: e.g., fridge 200L, washing machine, wooden desk, single futon..." rows="4" required minlength="5" maxlength="2000"></textarea>
             </div>
             <button type="submit" class="submit-btn" id="submitBtn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -300,17 +306,23 @@
             <p class="text-center" style="margin-top:18px; font-size:0.95rem;">
               ⚡ Faster response: Send photos directly on <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener noreferrer" style="color:#06c755; font-weight:600;">LINE (@704xslsr)</a>
             </p>
+            <p class="text-center" style="margin-top:8px; font-size:0.9rem; color:#6b7280;">
+              We use what you send here only to answer your quote request.
+              See our <a href="/privacy" style="color:#4f46e5; text-decoration:underline;">Privacy Notice</a>.
+            </p>
           </form>
           <div id="formSuccess" style="display:none;text-align:center;padding:40px 20px;" role="alert">
             <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" style="width:64px;height:64px;margin-bottom:16px;" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             <h3>Quote Request Sent Successfully!</h3>
             <p>We'll get back to you within 24 hours with a total price and payment details.</p>
+            <p id="confirmationNote" style="display:none; font-weight:600; margin-top:12px;">📧 A confirmation email has been sent to your inbox.</p>
             <button onclick="resetForm()" class="form-reset-btn">Send Another Request</button>
           </div>
           <div id="formError" style="display:none;text-align:center;padding:40px 20px;" role="alert">
             <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width:64px;height:64px;margin-bottom:16px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
             <h3>Oops! Something went wrong.</h3>
-            <p id="errorMessage">Please try again or contact us directly on <a href="https://line.me/ti/p/@704xslsr" style="color:#06c755;font-weight:600;">LINE (@704xslsr)</a> for immediate assistance.</p>
+            <p id="errorMessage"></p>
+            <p style="font-size:0.95rem;">Please try again, or contact us directly on <a href="https://line.me/ti/p/@704xslsr" style="color:#06c755;font-weight:600;">LINE (@704xslsr)</a> for immediate assistance.</p>
             <button onclick="resetForm()" class="form-reset-btn">Try Again</button>
           </div>
         </div>
@@ -321,6 +333,7 @@
   <div id="site-footer"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="/assets/js/quote-form.js"></script>
   <script src="/assets/js/main.js"></script>
 </body>
 </html>

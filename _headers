@@ -1,3 +1,43 @@
+# Cloudflare Pages response headers — Move Out Japan
+#
+# REPAIR NOTE (Phase 5): the site previously shipped only two cache rules and
+# no security headers. The `/*` block below adds a Content-Security-Policy,
+# clickjacking protection, MIME-sniffing protection, a referrer policy, a
+# permissions policy and HSTS.
+#
+# WHY 'unsafe-inline' REMAINS IN script-src:
+# the codebase has 26 inline event handlers in HTML (24 onclick, 2 onsubmit)
+# plus onclick/onkeydown handlers emitted by assets/js/main.js and rendered
+# through innerHTML. Browsers enforce script-src against every one of them, so
+# a CSP without 'unsafe-inline' would break the FAQ accordion, mobile menu,
+# blog cards and the quote form. style-src needs it too: 140 inline style=""
+# attributes plus <style> blocks in 404.html, privacy.html and sitemap.html.
+# Removing those handlers is worthwhile follow-up work; it was not done here
+# because it would be a large behavioural rewrite. The allowance is disclosed
+# rather than silently relied upon.
+#
+# X-XSS-Protection: 0 disables the legacy browser XSS auditor, which can
+# itself introduce vulnerabilities (OWASP guidance is to set it to 0).
+#
+# HSTS: HTTPS is already enforced for this host (HTTP answers 301) and there
+# are no HTTP-only subdomains, so includeSubDomains is safe. `preload` is
+# deliberately NOT set — preload lists are painful to reverse.
+#
+# NOTE: no comment lines appear inside rule blocks, so this file can be
+# parsed by any spec-compliant _headers implementation.
+#
+# This is defence-in-depth only. It does not make the site "secure", and the
+# client-side form validation is not a security boundary.
+
+/*
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; manifest-src 'self'; frame-src 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  X-XSS-Protection: 0
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
   Cache-Control: public, max-age=3600
