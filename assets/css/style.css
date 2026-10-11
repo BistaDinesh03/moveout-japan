@@ -426,7 +426,7 @@ a:hover {
 
 .blog-card .blog-date {
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #6b7280;
   margin-left: 8px;
 }
 
@@ -666,7 +666,7 @@ a:hover {
 .breadcrumb li:not(:last-child)::after {
   content: '/';
   margin: 0 8px;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .breadcrumb a {
@@ -728,7 +728,7 @@ footer {
 
 .footer-copyright {
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #6b7280;
   margin-top: 16px;
 }
 
