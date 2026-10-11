@@ -209,7 +209,8 @@ test('BreadcrumbList has exactly three levels ending at the article', () => {
   assert.deepEqual(crumb.itemListElement.map((i) => i.name),
     ['Home', 'Blog', 'The Complete Moving Out Checklist in Japan for Foreigners']);
   assert.equal(crumb.itemListElement[0].item, `${ORIGIN}/`);
-  assert.equal(crumb.itemListElement[1].item, `${ORIGIN}/blog`);
+  assert.equal(crumb.itemListElement[1].item, `${ORIGIN}/blog/`,
+    'the Blog crumb must use the canonical /blog/ URL (bare /blog 308-redirects)');
 
   // The final crumb names the page rather than linking a second time.
   assert.ok(!('item' in crumb.itemListElement[2]), 'last crumb must not repeat the URL');
@@ -339,7 +340,7 @@ test('the catalogue advertises exactly the articles that exist', () => {
 
   assert.deepEqual(slugs, files, 'catalogue and article files have diverged');
   assert.ok(slugs.includes(SLUG), `catalogue must list ${SLUG}`);
-  assert.equal(slugs.length, 2, `expected exactly 2 published articles, found ${slugs.length}`);
+  assert.equal(slugs.length, 3, `expected exactly 3 published articles, found ${slugs.length}`);
 });
 
 test('catalogue date matches the article publication date', () => {
@@ -380,7 +381,7 @@ test('sitemap.html advertises every published article and no others', () => {
   const count = html.match(/Blog &amp; Guides <span class="total-pages">([^<]+)<\/span>/)
     || html.match(/Blog & Guides <span class="total-pages">([^<]+)<\/span>/);
   assert.ok(count, 'missing blog page count');
-  assert.equal(count[1], '3 pages', 'page count must cover blog home + 2 articles');
+  assert.equal(count[1], '4 pages', 'page count must cover blog home + 3 articles');
 });
 
 test('the blog index renders from the catalogue, so the article will appear', () => {
@@ -396,7 +397,7 @@ test('the other published article is reachable from the new one', () => {
   const hrefs = anchors(articleHtml).map((a) => a.href);
   assert.ok(hrefs.includes('/blog/posts/how-to-dispose-furniture-japan'),
     'the new article should cross-link to the existing guide');
-  assert.ok(hrefs.includes('/blog'), 'the new article should link back to the blog index');
+  assert.ok(hrefs.includes('/blog/'), 'the new article should link back to the blog index');
 });
 
 // ============================================================

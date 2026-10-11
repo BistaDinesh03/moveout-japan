@@ -22,6 +22,14 @@
 // `tests/blog.test.js` enforces this — do not add an entry without a file.
 const BLOG_POSTS = [
   {
+    slug: 'leaving-japan-administrative-checklist',
+    title: 'Moving Out of Japan: The Administrative Checklist Foreigners Often Miss',
+    excerpt: 'Mail forwarding, tax, pension, health insurance, and municipal notifications — the official steps to handle before you leave Japan or move cities.',
+    category: 'Moving Out',
+    date: '2026-10-11',
+    image: '/favicon/web-app-manifest-512x512.png'
+  },
+  {
     slug: 'moving-out-checklist-japan',
     title: 'The Complete Moving Out Checklist in Japan for Foreigners',
     excerpt: 'From contract review to key return — a practical, ordered moving-out checklist for foreign residents in Japan.',
@@ -62,7 +70,7 @@ function loadHeader() {
             <a href="/pages/services" role="menuitem" class="${currentPath.includes('/services') ? 'active' : ''}">Services</a>
             <a href="/pages/pricing" role="menuitem" class="${currentPath.includes('/pricing') ? 'active' : ''}">Pricing</a>
             <a href="/pages/faq" role="menuitem" class="${currentPath.includes('/faq') ? 'active' : ''}">FAQ</a>
-            <a href="/blog" role="menuitem" class="${currentPath.includes('/blog') ? 'active' : ''}">Blog</a>
+            <a href="/blog/" role="menuitem" class="${currentPath.includes('/blog') ? 'active' : ''}">Blog</a>
             <a href="/contact" class="nav-cta" role="menuitem">Get Free Quote</a>
           </div>
         </div>
@@ -82,20 +90,20 @@ function loadFooter() {
     <footer role="contentinfo">
       <div class="container">
         <p>📧 bistadinesh642@gmail.com &nbsp;|&nbsp; 📱 LINE: @704xslsr</p>
-        <p style="font-size:0.9rem; margin-top:8px;">💳 PayPay · Bank Transfer · LINE Pay · Cash</p>
+        <p style="font-size:0.9rem; margin-top:8px;">💬 English support — quotes via the contact form or LINE</p>
         <nav aria-label="Footer navigation" class="footer-nav">
           <a href="/">Home</a>
           <a href="/pages/how-it-works">How It Works</a>
           <a href="/pages/services">Services</a>
           <a href="/pages/pricing">Pricing</a>
           <a href="/pages/faq">FAQ</a>
-          <a href="/blog">Blog</a>
+          <a href="/blog/">Blog</a>
           <a href="/contact">Contact</a>
           <a href="/privacy">Privacy</a>
           <a href="/sitemap">Sitemap</a>
           <a href="/sitemap.xml">XML</a>
         </nav>
-        <p class="footer-copyright">© 2024 Move Out Japan — Foreigner-friendly furniture disposal & moving support in Japan</p>
+        <p class="footer-copyright">© 2024–2026 Move Out Japan — Foreigner-friendly furniture disposal & moving support in Japan</p>
       </div>
     </footer>
   `;
@@ -212,7 +220,7 @@ function buildConfirmPayload(values) {
     to_name: values.name,
     items: values.items,
     location: values.location,
-    reply_message: 'We received your request! We\'ll reply within 24 hours.\n\nThank you,\nMove Out Japan Team\n📱 LINE: @704xslsr',
+    reply_message: 'We received your request! We\'ll get back to you with a quote and next steps.\n\nThank you,\nMove Out Japan Team\n📱 LINE: @704xslsr',
     from_name: 'Move Out Japan'
   };
 }

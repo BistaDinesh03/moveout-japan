@@ -33,9 +33,9 @@ Move Out Japan helps **international students, foreign workers, and expats** dis
 
 - 🗣️ **English communication** — no Japanese required
 - ⚖️ **Legal disposal** — aligned with Japan's Home Appliance Recycling Law
-- 💰 **Transparent pricing** — fixed quotes, no hidden fees
+- 💰 **Quote-based pricing** — every job priced from photos and location, with the total confirmed before booking
 - 🚛 **Coverage** — Fukuoka, Saga, Tokyo, Osaka, Nagoya and other major cities
-- ⚡ **Fast response** — quotes within 24 hours, pickup within 2–7 days
+- ⚡ **Direct response** — send photos by form or LINE and we reply with next steps
 
 ---
 
