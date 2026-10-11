@@ -298,14 +298,15 @@ a:hover {
 }
 
 .cta-btn-green {
-  background: #06c755;
-  border-color: #06c755;
+  /* Darkened from LINE's #06c755 so white text clears WCAG AA (5.4:1) */
+  background: #037a33;
+  border-color: #037a33;
   box-shadow: 0 8px 18px rgba(6, 199, 85, 0.25);
 }
 
 .cta-btn-green:hover {
-  background: #05a648;
-  border-color: #05a648;
+  background: #02612a;
+  border-color: #02612a;
 }
 
 .cta-btn svg {
