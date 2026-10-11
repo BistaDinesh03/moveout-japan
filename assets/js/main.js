@@ -434,7 +434,7 @@ function createBlogCard(post) {
     <div class="card blog-card" onclick="window.location.href='${href}'" role="link" tabindex="0" onkeydown="if(event.key==='Enter')window.location.href='${href}'">
       <span class="blog-category">${post.category}</span>
       <span class="blog-date">${new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-      <h3>${post.title}</h3>
+      <h2 class="heading-card">${post.title}</h2>
       <p>${post.excerpt}</p>
       <span class="blog-read-more">Read Article →</span>
     </div>
