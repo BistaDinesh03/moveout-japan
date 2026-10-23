@@ -39,7 +39,7 @@ const articleHtml = read(ARTICLE);
 
 /** Every outbound <a> source that was confirmed to return HTTP 200. */
 const VERIFIED_EXTERNAL = new Set([
-  'https://www.mlit.go.jp/jutakukentiku/house/jutakukentiku_house_tk3_000026.html',
+  'https://www.mlit.go.jp/jutakukentiku/house/jutakukentiku_house_tk3_000020.html',
   'https://www.mlit.go.jp/jutakukentiku/house/jutakukentiku_house_tk3_000024.html',
   'https://www.mlit.go.jp/jutakukentiku/house/content/001595154.pdf',
   'https://www.env.go.jp/recycle/waste/index.html',
@@ -340,7 +340,7 @@ test('the catalogue advertises exactly the articles that exist', () => {
 
   assert.deepEqual(slugs, files, 'catalogue and article files have diverged');
   assert.ok(slugs.includes(SLUG), `catalogue must list ${SLUG}`);
-  assert.equal(slugs.length, 3, `expected exactly 3 published articles, found ${slugs.length}`);
+  assert.equal(slugs.length, 4, `expected exactly 4 published articles, found ${slugs.length}`);
 });
 
 test('catalogue date matches the article publication date', () => {
@@ -381,7 +381,7 @@ test('sitemap.html advertises every published article and no others', () => {
   const count = html.match(/Blog &amp; Guides <span class="total-pages">([^<]+)<\/span>/)
     || html.match(/Blog & Guides <span class="total-pages">([^<]+)<\/span>/);
   assert.ok(count, 'missing blog page count');
-  assert.equal(count[1], '4 pages', 'page count must cover blog home + 3 articles');
+  assert.equal(count[1], '5 pages', 'page count must cover blog home + 4 articles');
 });
 
 test('the blog index renders from the catalogue, so the article will appear', () => {

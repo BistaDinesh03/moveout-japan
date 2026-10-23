@@ -122,7 +122,10 @@ moveout-japan/
 ├── blog/
 │   ├── index.html             Blog listing + client-side search
 │   └── posts/
-│       └── how-to-dispose-furniture-japan.html   (the only published article)
+│       ├── rental-deposit-deductions-japan.html
+│       ├── leaving-japan-administrative-checklist.html
+│       ├── moving-out-checklist-japan.html
+│       └── how-to-dispose-furniture-japan.html
 ├── pages/                     how-it-works, services, pricing, faq
 ├── favicon/                   icons + site.webmanifest
 ├── tests/                     Regression tests (node --test, no packages)
@@ -211,7 +214,7 @@ node --test tests/quote-form.test.js
 > `node --test tests/` (pointing at the directory) does **not** work — Node
 > tries to load `tests` as a module and exits with `Cannot find module`.
 > Run bare `node --test` from the repository root instead; it discovers all
-> five files automatically.
+> eight files automatically.
 
 Available test files:
 
@@ -220,6 +223,9 @@ Available test files:
 | `tests/quote-form.test.js` | Validation rules, boundary/overlong/malformed input, mocked delivery success & failure, duplicate-submission guard |
 | `tests/email-safety.test.js` | Proves the form core cannot reach the live email provider |
 | `tests/blog.test.js` | Every `BLOG_POSTS` slug has a real, non-empty article file; no 0-byte files anywhere |
+| `tests/moving-checklist.test.js` | The complete moving-out checklist, its metadata and structured data, quote-CTA integrity, and catalogue/sitemap consistency |
+| `tests/site-audit.test.js` | Site-wide canonical/breadcrumb agreement, removal of unverified commercial claims, FAQ parity, and the administrative-checklist article |
+| `tests/deposit-deductions.test.js` | The rental-deposit article's legal sources, metadata, structured data, FAQ parity, internal links, and catalogue/sitemap integration |
 | `tests/sitemap.test.js` | Every sitemap URL maps to a real file and is canonical/extensionless; `robots.txt` wiring |
 | `tests/routes.test.js` | `_redirects` sanity (no self-looping rule, nothing for `/contact`), real `404.html`, internal links resolve, security headers present and CSP covers every origin the site loads, manifest/icons, form markup, and the `main.js` ↔ HTML element-ID contract |
 
@@ -278,11 +284,13 @@ Be aware of these — they are documented rather than hidden:
 - **Navigation and footer require JavaScript.**
 - **The site claims no analytics and runs none.** Privacy is preserved at the
   cost of having no traffic data.
-- **Blog content is thin by design:** only one article has ever been written.
-  Nine previously advertised posts never existed and were unpublished rather
-  than fabricated.
-- **Legal/pricing claims in the article are not cited to official sources.**
-  This is an outstanding content task.
+- **Four articles are published.** Nine previously advertised posts never
+  existed and were unpublished rather than fabricated. The three newer guides
+  cite official sources; the original furniture-disposal guide predates that
+  citation standard and should be reviewed before it is expanded.
+- **Legal and procedural information is general guidance, not advice.**
+  Contracts, municipalities and individual facts vary. Each guide links to the
+  public body it relies on and tells readers to confirm their own case.
 
 ---
 

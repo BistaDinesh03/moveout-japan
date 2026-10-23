@@ -22,6 +22,14 @@
 // `tests/blog.test.js` enforces this — do not add an entry without a file.
 const BLOG_POSTS = [
   {
+    slug: 'rental-deposit-deductions-japan',
+    title: 'Rental Deposit Deductions in Japan: What Landlords Can and Cannot Charge',
+    excerpt: 'Normal wear vs damage, special clauses, cleaning fees, inspection signatures and itemised statements — a source-based guide to shikikin deductions.',
+    category: 'Moving Out',
+    date: '2026-10-23',
+    image: '/favicon/web-app-manifest-512x512.png'
+  },
+  {
     slug: 'leaving-japan-administrative-checklist',
     title: 'Moving Out of Japan: The Administrative Checklist Foreigners Often Miss',
     excerpt: 'Mail forwarding, tax, pension, health insurance, and municipal notifications — the official steps to handle before you leave Japan or move cities.',

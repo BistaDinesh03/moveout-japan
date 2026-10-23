@@ -185,7 +185,7 @@ test('internal links to the blog index use the canonical /blog/ URL', () => {
 
 test('sitemap.html is current — no stale date, correct copyright', () => {
   const html = read(path.join(ROOT, 'sitemap.html'));
-  assert.match(html, /Last updated: October 11, 2026/,
+  assert.match(html, /Last updated: October 23, 2026/,
     'sitemap.html must carry the date its content last changed');
   assert.ok(!/July 19, 2026/.test(html), 'stale "last updated" date');
 });
@@ -344,22 +344,31 @@ test('the catalogue, sitemap.xml and sitemap.html all carry the new article', ()
   assert.ok(html.includes(`/blog/posts/${SLUG}`), 'sitemap.html missing the new article');
 });
 
-test('the pages whose content changed on 2026-10-11 carry that lastmod', () => {
+test('the pages whose content changed on 2026-10-11 or 2026-10-23 carry the right lastmod', () => {
   const xml = read(path.join(ROOT, 'sitemap.xml'));
-  const changed = [
-    `${ORIGIN}/`,
-    `${ORIGIN}/contact`,
-    `${ORIGIN}/pages/how-it-works`,
-    `${ORIGIN}/pages/services`,
-    `${ORIGIN}/pages/pricing`,
-    `${ORIGIN}/pages/faq`,
-    `${ORIGIN}/blog/`
+
+  const expectations = [
+    ['2026-10-11', [
+      `${ORIGIN}/contact`,
+      `${ORIGIN}/pages/how-it-works`,
+      `${ORIGIN}/pages/services`,
+      `${ORIGIN}/pages/pricing`,
+      `${ORIGIN}/pages/faq`
+    ]],
+    // The homepage preview and the blog listing both changed when the fourth
+    // article was added on 2026-10-23, even though their static HTML did not.
+    ['2026-10-23', [
+      `${ORIGIN}/`,
+      `${ORIGIN}/blog/`
+    ]]
   ];
 
-  for (const url of changed) {
-    const block = xml.split(/<url>/).find((b) => b.includes(`<loc>${url}</loc>`));
-    assert.ok(block, `sitemap.xml missing ${url}`);
-    assert.match(block, /<lastmod>\s*2026-10-11\s*<\/lastmod>/,
-      `${url} was edited on 2026-10-11, so its lastmod must say so`);
+  for (const [date, changed] of expectations) {
+    for (const url of changed) {
+      const block = xml.split(/<url>/).find((b) => b.includes(`<loc>${url}</loc>`));
+      assert.ok(block, `sitemap.xml missing ${url}`);
+      assert.match(block, new RegExp(`<lastmod>\\s*${date}\\s*</lastmod>`),
+        `${url} was edited on ${date}, so its lastmod must say so`);
+    }
   }
 });
