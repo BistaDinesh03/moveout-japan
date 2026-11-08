@@ -75,8 +75,10 @@ test('no rewrite rule exists for /contact', () => {
   }
 });
 
-test('every rewrite target maps to an existing file', () => {
-  for (const r of readRedirects()) {
+test('every 200 rewrite target maps to an existing file', () => {
+  // 301 targets may legitimately be "/", which is served by index.html; only
+  // proxied (200) rewrites promise a concrete file.
+  for (const r of readRedirects().filter((rule) => rule.status === 200)) {
     const rel = r.target.replace(/^\//, '');
     const full = path.join(ROOT, rel);
     assert.ok(fs.existsSync(full), `rewrite target missing on disk: ${r.target}`);
@@ -88,6 +90,53 @@ test('the short URLs the site advertises are all covered', () => {
   const sources = new Set(readRedirects().map((r) => r.source));
   for (const s of ['/how-it-works', '/services', '/pricing', '/faq']) {
     assert.ok(sources.has(s), `expected a short-URL rule for ${s}`);
+  }
+});
+
+test('internal-path redirects target "/" so Cloudflare does not drop them', () => {
+  // Cloudflare normalises /index.html to / and silently discards any wildcard
+  // rule whose target could loop back onto itself. The /tests/*, /scripts/* and
+  // /research/* rules were ignored in production until the target became "/".
+  const internal = readRedirects().filter(
+    (r) => /^\/(?:tests|scripts|research|functions)(?:\/|$)/.test(r.source) ||
+      r.source === '/README.md' ||
+      r.source === '/.gitignore' ||
+      r.source === '/_routes.json'
+  );
+
+  assert.ok(internal.length >= 10, `expected 10 internal-path rules, found ${internal.length}`);
+  for (const r of internal) {
+    assert.equal(r.target, '/', `"${r.raw}" must target / or Cloudflare will ignore it`);
+  }
+});
+
+test('_routes.json sends every path through the internal-path guard', () => {
+  // Encoded spellings such as /tests%2Fblog.test.js do not match the wildcard
+  // redirect rules, so a Pages Function has to see every request to block them.
+  const routes = JSON.parse(fs.readFileSync(path.join(ROOT, '_routes.json'), 'utf8'));
+  assert.equal(routes.version, 1);
+  assert.ok(Array.isArray(routes.include), 'include must be an array');
+  assert.ok(
+    routes.include.includes('/*'),
+    'include must cover every path, otherwise percent-encoded internal paths bypass the guard'
+  );
+});
+
+test('the internal-path guard blocks repository files after decoding', () => {
+  const file = path.join(ROOT, 'functions', '_middleware.js');
+  assert.ok(fs.existsSync(file), 'functions/_middleware.js is required');
+
+  const src = fs.readFileSync(file, 'utf8');
+  assert.match(src, /export\s+(?:async\s+)?function\s+onRequest/, 'must export onRequest');
+  assert.ok(src.includes('decodeURIComponent'), 'must decode percent-encoded paths');
+  assert.match(src, /\/\{2,\}/, 'must collapse duplicate slashes');
+  assert.match(src, /status:\s*404/, 'must answer 404');
+
+  for (const dir of ['tests', 'scripts', 'research', 'functions']) {
+    assert.ok(src.includes(dir), `guard must cover ${dir}/`);
+  }
+  for (const name of ['README.md', '.gitignore', '_routes.json']) {
+    assert.ok(src.includes(name), `guard must cover ${name}`);
   }
 });
 

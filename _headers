@@ -57,5 +57,14 @@
 /research/*
   X-Robots-Tag: noindex, nofollow
 
+/functions/*
+  X-Robots-Tag: noindex, nofollow
+
+/_routes.json
+  X-Robots-Tag: noindex, nofollow
+
 /README.md
+  X-Robots-Tag: noindex, nofollow
+
+/.gitignore
   X-Robots-Tag: noindex, nofollow
