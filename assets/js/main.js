@@ -22,6 +22,14 @@
 // `tests/blog.test.js` enforces this — do not add an entry without a file.
 const BLOG_POSTS = [
   {
+    slug: 'partner-with-move-out-japan',
+    title: 'Partner With Move Out Japan: Referrals, Content and Service Collaborations',
+    excerpt: 'How partnership enquiries work, what we assess, what we will and will not publish, and how affiliate or sponsored links are disclosed.',
+    category: 'Partnerships',
+    date: '2026-11-08',
+    image: '/favicon/web-app-manifest-512x512.png'
+  },
+  {
     slug: 'rental-deposit-deductions-japan',
     title: 'Rental Deposit Deductions in Japan: What Landlords Can and Cannot Charge',
     excerpt: 'Normal wear vs damage, special clauses, cleaning fees, inspection signatures and itemised statements — a source-based guide to shikikin deductions.',
@@ -106,8 +114,10 @@ function loadFooter() {
           <a href="/pages/pricing">Pricing</a>
           <a href="/pages/faq">FAQ</a>
           <a href="/blog/">Blog</a>
+          <a href="/partners">Partners</a>
           <a href="/contact">Contact</a>
           <a href="/privacy">Privacy</a>
+          <a href="/pages/affiliate-disclosure">Disclosure</a>
           <a href="/sitemap">Sitemap</a>
           <a href="/sitemap.xml">XML</a>
         </nav>

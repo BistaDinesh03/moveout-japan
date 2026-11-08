@@ -67,3 +67,6 @@ out/
 # Cloudflare
 .cloudflare/
 .wrangler/
+
+# Local research notes (never published; sources and verification notes)
+research/
