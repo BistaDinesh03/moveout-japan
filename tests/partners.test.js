@@ -417,6 +417,18 @@ test('internal paths are blocked and research notes are gitignored', () => {
   assert.match(ignore, /^research\/$/m, 'research/ must be gitignored');
 });
 
+test('the dark enquiry box keeps its list text readable', () => {
+  // `.prose li` sets a dark colour and wins over the colour inherited from the
+  // <ul>. Without a direct `.enquiry-box li` rule the list renders dark-on-dark
+  // (about 1.7:1); Lighthouse flagged exactly that.
+  assert.match(
+    partnersHtml,
+    /\.enquiry-box p,\s*\.enquiry-box li\s*\{\s*color:\s*#d1d5db/,
+    'the enquiry box needs a direct light-colour rule for list items'
+  );
+  assert.match(partnersHtml, /\.enquiry-box\s*\{[^}]*background:\s*#111827/, 'enquiry box is expected to stay dark');
+});
+
 test('the new public files contain no secret material', () => {
   const files = [ARTICLE, PARTNERS, DISCLOSURE];
   for (const file of files) {
