@@ -192,7 +192,7 @@ test('BlogPosting structured data matches the page', () => {
 
   assert.ok(post.mainEntityOfPage && post.mainEntityOfPage['@id'] === CANONICAL,
     'mainEntityOfPage must be the canonical URL');
-  assert.equal(post.image, `${ORIGIN}/favicon/web-app-manifest-512x512.png`);
+  assert.equal(post.image, `${ORIGIN}/assets/images/brand/move-out-japan-social.png`);
 
   assert.ok(post.author && post.author.name === 'Move Out Japan');
   assert.ok(post.publisher && post.publisher.name === 'Move Out Japan');
@@ -410,7 +410,7 @@ test('the shared navigation CTA points at /contact', () => {
   const navCta = mainJs.match(/<a href="([^"]+)" class="nav-cta"[^>]*>([^<]+)</);
   assert.ok(navCta, 'nav CTA not found in main.js');
   assert.equal(navCta[1], '/contact', 'nav CTA must point at /contact');
-  assert.equal(navCta[2].trim(), 'Get Free Quote');
+  assert.equal(navCta[2].trim(), 'Get in Touch');
 });
 
 test('every quote CTA in the site links to /contact with no click handler', () => {

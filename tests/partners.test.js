@@ -269,8 +269,8 @@ test('the partners page has WebPage and BreadcrumbList JSON-LD', () => {
 });
 
 test('the partners page explains how to enquire and links to the policy', () => {
-  assert.match(partnersHtml, /mailto:bistadinesh642@gmail\.com\?subject=Partnership%20enquiry/,
-    'partners page needs a prefilled partnership email link');
+  assert.match(partnersHtml, /mailto:dineshbista123@outlook\.com\?subject=Move%20Out%20Japan%20-%20Partnership%20Enquiry/,
+    'partners page needs a prefilled partnership email link to the public Outlook address');
   assert.match(partnersHtml, /https:\/\/line\.me\/ti\/p\/@704xslsr/,
     'partners page needs the LINE contact');
 
@@ -396,7 +396,7 @@ test('sitemap.html lists all three pages and the updated counts', () => {
 test('the shared footer and contact page link to the new pages', () => {
   const main = read(path.join(ROOT, 'assets', 'js', 'main.js'));
   assert.ok(main.includes('<a href="/partners">Partners</a>'), 'footer missing /partners');
-  assert.ok(main.includes('<a href="/pages/affiliate-disclosure">Disclosure</a>'),
+  assert.ok(main.includes('<a href="/pages/affiliate-disclosure">Affiliate disclosure</a>'),
     'footer missing the disclosure link');
 
   const contact = read(path.join(ROOT, 'contact.html'));
@@ -426,7 +426,7 @@ test('the dark enquiry box keeps its list text readable', () => {
     /\.enquiry-box p,\s*\.enquiry-box li\s*\{\s*color:\s*#d1d5db/,
     'the enquiry box needs a direct light-colour rule for list items'
   );
-  assert.match(partnersHtml, /\.enquiry-box\s*\{[^}]*background:\s*#111827/, 'enquiry box is expected to stay dark');
+  assert.match(partnersHtml, /\.enquiry-box\s*\{[^}]*background:\s*#0b1f3a/, 'enquiry box is expected to stay dark');
 });
 
 test('the new public files contain no secret material', () => {

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" role="img" aria-labelledby="mojLogoLightTitle">
+  <title id="mojLogoLightTitle">Move Out Japan</title>
+  <g>
+    <circle cx="32" cy="17" r="7" fill="#b5121b"/>
+    <path d="M9 34.5 32 14l23 20.5" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15.5 32v18a4 4 0 0 0 4 4h25a4 4 0 0 0 4-4V32" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M26 54V41h12v13" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+  </g>
+  <text x="80" y="41" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="-0.6" fill="#ffffff">Move Out Japan</text>
+</svg>

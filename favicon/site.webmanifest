@@ -1,11 +1,17 @@
 {
   "name": "Move Out Japan",
   "short_name": "Move Out Japan",
-  "description": "English-language furniture disposal and move-out support for foreigners in Japan.",
+  "description": "Practical English-language guides and resources for moving, settling in, and managing everyday life in Japan.",
   "lang": "en",
   "start_url": "/",
   "scope": "/",
   "icons": [
+    {
+      "src": "/favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/favicon/web-app-manifest-192x192.png",
       "sizes": "192x192",
@@ -25,7 +31,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#111827",
+  "theme_color": "#0b1f3a",
   "background_color": "#ffffff",
   "display": "browser"
 }

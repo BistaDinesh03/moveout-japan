@@ -167,7 +167,7 @@ test('BlogPosting structured data matches the page', () => {
   assert.equal(post.dateModified, PUB_DATE);
   assert.ok(post.mainEntityOfPage && post.mainEntityOfPage['@id'] === CANONICAL,
     'mainEntityOfPage must be the canonical URL');
-  assert.equal(post.image, `${ORIGIN}/favicon/web-app-manifest-512x512.png`);
+  assert.equal(post.image, `${ORIGIN}/assets/images/brand/move-out-japan-social.png`);
   assert.ok(post.author && post.author.name === 'Move Out Japan');
   assert.ok(post.publisher && post.publisher.name === 'Move Out Japan');
   assert.ok(post.publisher.logo && post.publisher.logo.url, 'publisher logo required');

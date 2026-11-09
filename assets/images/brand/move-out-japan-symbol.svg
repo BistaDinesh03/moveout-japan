@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="mojSymbolTitle">
+  <title id="mojSymbolTitle">Move Out Japan symbol</title>
+  <rect width="64" height="64" rx="14" fill="#0b1f3a"/>
+  <circle cx="45" cy="19" r="7" fill="#b5121b"/>
+  <path d="M13 33.5 32 16l19 17.5" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.5 31.5V48a4 4 0 0 0 4 4h19a4 4 0 0 0 4-4V31.5" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 52V40h8v12" fill="none" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+</svg>

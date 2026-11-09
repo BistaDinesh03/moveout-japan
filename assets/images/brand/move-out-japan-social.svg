@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="mojSocialTitle">
+  <title id="mojSocialTitle">Move Out Japan — Moving and Living in Japan, Made Easier</title>
+  <rect width="1200" height="630" fill="#0b1f3a"/>
+  <circle cx="1010" cy="150" r="210" fill="#b5121b" opacity="0.16"/>
+  <circle cx="1010" cy="150" r="120" fill="#b5121b" opacity="0.22"/>
+  <g transform="translate(96 120)">
+    <rect width="132" height="132" rx="30" fill="#ffffff"/>
+    <circle cx="93" cy="39" r="15" fill="#b5121b"/>
+    <path d="M27 69 66 33l39 36" fill="none" stroke="#0b1f3a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M38 65v34a8 8 0 0 0 8 8h40a8 8 0 0 0 8-8V65" fill="none" stroke="#0b1f3a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M58 107V84h16v23" fill="none" stroke="#0b1f3a" stroke-width="8" stroke-linejoin="round"/>
+  </g>
+  <text x="96" y="340" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="70" font-weight="800" letter-spacing="-1.5" fill="#ffffff">Move Out Japan</text>
+  <text x="96" y="418" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="34" font-weight="500" fill="#c7d2e3">Moving and Living in Japan, Made Easier.</text>
+  <rect x="96" y="470" width="86" height="6" rx="3" fill="#b5121b"/>
+  <text x="96" y="540" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="500" fill="#93a4bd">Practical English-language guides for everyday life in Japan</text>
+</svg>
