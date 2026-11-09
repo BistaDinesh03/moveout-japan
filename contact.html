@@ -7,7 +7,7 @@
 
   <title>Contact Us | Get Your Free Moving Quote | Move Out Japan</title>
   <meta name="description" content="Request your free moving out quote. English support for furniture disposal in Japan, with a clear price based on your items.">
-  
+
   <link rel="canonical" href="https://moveoutjapan.pages.dev/contact">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
@@ -16,15 +16,19 @@
   <meta property="og:url" content="https://moveoutjapan.pages.dev/contact">
   <meta property="og:title" content="Contact Us | Get Your Free Moving Quote | Move Out Japan">
   <meta property="og:description" content="Request your free moving out quote. English support for furniture disposal in Japan.">
-  <meta property="og:image" content="https://moveoutjapan.pages.dev/favicon/web-app-manifest-512x512.png">
+  <meta property="og:image" content="https://moveoutjapan.pages.dev/assets/images/brand/move-out-japan-social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact Us | Get Your Free Moving Quote | Move Out Japan">
   <meta name="twitter:description" content="Request your free moving out quote. English support for furniture disposal in Japan.">
+  <meta name="twitter:image" content="https://moveoutjapan.pages.dev/assets/images/brand/move-out-japan-social.png">
 
-  <meta name="theme-color" content="#111827">
+  <meta name="theme-color" content="#0b1f3a">
   <meta name="application-name" content="Move Out Japan">
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
   <link rel="shortcut icon" href="/favicon/favicon.ico">
@@ -50,74 +54,97 @@
 </head>
 <body>
   <a href="#main-content" class="skip-nav">Skip to main content</a>
-  
+
   <div id="site-header"></div>
 
   <main id="main-content">
-    <section aria-labelledby="contact-heading">
+    <section class="page-hero" aria-labelledby="contact-heading">
       <div class="container">
-        <h1 id="contact-heading" class="text-center">Request Your Free Moving Out Quote</h1>
-        <p class="text-center mb-20" style="font-size:1.15rem;">Tell us what you need to dispose, and we'll reply with a quote and the next steps.</p>
-        
-        <div class="contact-form">
-          <!-- method="post" so that if JavaScript ever fails to load, the
-               browser cannot place name/email in a URL query string, where it
-               would end up in hosting request logs. With JS active the submit
-               is always prevented before any request is made. -->
-          <form id="priceCheckForm" onsubmit="return handleSubmit(event)" method="post" novalidate>
-            <div id="formStatus" class="form-status" role="alert" aria-live="assertive" style="display:none;"></div>
-            <div class="form-group">
-              <label for="name">Your Name *</label>
-              <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" minlength="1" maxlength="100">
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" minlength="5" maxlength="254">
-            </div>
-            <div class="form-group">
-              <label for="location">Your Location in Japan *</label>
-              <select id="location" name="location" required>
-                <option value="">Select your area...</option>
-                <option value="Fukuoka">Fukuoka</option><option value="Saga">Saga</option><option value="Tokyo">Tokyo</option><option value="Osaka">Osaka</option><option value="Nagoya">Nagoya</option><option value="Kyoto">Kyoto</option><option value="Yokohama">Yokohama</option><option value="Saitama">Saitama</option><option value="Chiba">Chiba</option><option value="Kawasaki">Kawasaki</option><option value="Sapporo">Sapporo</option><option value="Kobe">Kobe</option><option value="Hiroshima">Hiroshima</option><option value="Sendai">Sendai</option><option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="items">Items to Dispose *</label>
-              <textarea id="items" name="items" placeholder="Describe your items: e.g., fridge 200L, washing machine, wooden desk, single futon..." rows="4" required minlength="5" maxlength="2000"></textarea>
-            </div>
-            <button type="submit" class="submit-btn" id="submitBtn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              <span id="btnText">Send for Free Price Check</span>
-            </button>
-            <p class="text-center" style="margin-top:18px; font-size:0.95rem;">
-              ⚡ Faster response: Send photos directly on <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener noreferrer" style="color:#037a33; font-weight:600;">LINE (@704xslsr)</a>
-            </p>
-            <p class="text-center" style="margin-top:8px; font-size:0.9rem; color:#6b7280;">
-              We use what you send here only to answer your quote request.
-              See our <a href="/privacy" style="color:#4f46e5; text-decoration:underline;">Privacy Notice</a>.
-            </p>
-          </form>
+        <p class="eyebrow">Contact</p>
+        <h1 id="contact-heading">Request Your Free Moving Out Quote</h1>
+        <p class="page-lead">Tell us what you need to dispose, and we'll reply with a quote and the next steps. English support, no Japanese paperwork required.</p>
+      </div>
+    </section>
 
-          <div id="formSuccess" style="display:none;text-align:center;padding:40px 20px;" role="alert">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" style="width:64px;height:64px;margin-bottom:16px;" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <h3>Quote Request Sent Successfully!</h3>
-            <p>We'll get back to you with your quote and the next steps.</p>
-            <p id="confirmationNote" style="display:none; font-weight:600; margin-top:12px;">📧 A confirmation email has been sent to your inbox.</p>
-            <button onclick="resetForm()" class="form-reset-btn">Send Another Request</button>
+    <section aria-label="Quote request form">
+      <div class="container">
+        <div class="contact-layout">
+          <div class="contact-form">
+            <!-- method="post" so that if JavaScript ever fails to load, the
+                 browser cannot place name/email in a URL query string, where it
+                 would end up in hosting request logs. With JS active the submit
+                 is always prevented before any request is made. -->
+            <form id="priceCheckForm" onsubmit="return handleSubmit(event)" method="post" novalidate>
+              <div id="formStatus" class="form-status" role="alert" aria-live="assertive" style="display:none;"></div>
+
+              <div class="hp-field" aria-hidden="true">
+                <label for="website">Leave this field empty</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" minlength="1" maxlength="100">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" minlength="5" maxlength="254">
+              </div>
+              <div class="form-group">
+                <label for="location">Your Location in Japan *</label>
+                <select id="location" name="location" required>
+                  <option value="">Select your area...</option>
+                  <option value="Fukuoka">Fukuoka</option><option value="Saga">Saga</option><option value="Tokyo">Tokyo</option><option value="Osaka">Osaka</option><option value="Nagoya">Nagoya</option><option value="Kyoto">Kyoto</option><option value="Yokohama">Yokohama</option><option value="Saitama">Saitama</option><option value="Chiba">Chiba</option><option value="Kawasaki">Kawasaki</option><option value="Sapporo">Sapporo</option><option value="Kobe">Kobe</option><option value="Hiroshima">Hiroshima</option><option value="Sendai">Sendai</option><option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="items">Items to Dispose *</label>
+                <textarea id="items" name="items" placeholder="Describe your items: e.g., fridge 200L, washing machine, wooden desk, single futon..." rows="4" required minlength="5" maxlength="2000"></textarea>
+              </div>
+              <button type="submit" class="submit-btn" id="submitBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span id="btnText">Send for Free Price Check</span>
+              </button>
+              <p class="form-privacy">
+                We use what you send here only to answer your quote request.
+                See our <a href="/privacy">Privacy Notice</a>.
+              </p>
+            </form>
+
+            <div id="formSuccess" class="form-panel form-panel-success" style="display:none;" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="panel-icon" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h2>Quote Request Sent Successfully!</h2>
+              <p>We'll get back to you with your quote and the next steps.</p>
+              <p id="confirmationNote" style="display:none; font-weight:600; margin-top:12px;">A confirmation email has been sent to your inbox.</p>
+              <button onclick="resetForm()" class="form-reset-btn">Send Another Request</button>
+            </div>
+
+            <div id="formError" class="form-panel form-panel-error" style="display:none;" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="panel-icon" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <h2>We couldn't send that automatically</h2>
+              <p id="errorMessage"></p>
+              <p class="fallback-copy">Your details are still in the form above. Use the button below to open a pre-filled email in your mail app, or write to us directly. Nothing is lost.</p>
+              <a id="emailFallback" class="cta-btn cta-btn-outline" href="mailto:dineshbista123@outlook.com?subject=Move%20Out%20Japan%20-%20General%20Enquiry">Email us instead</a>
+              <button onclick="resetForm()" class="form-reset-btn">Try Again</button>
+            </div>
           </div>
 
-          <div id="formError" style="display:none;text-align:center;padding:40px 20px;" role="alert">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" style="width:64px;height:64px;margin-bottom:16px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            <h3>Oops! Something went wrong.</h3>
-            <p id="errorMessage"></p>
-            <p style="font-size:0.95rem;">Please try again, or contact us directly on <a href="https://line.me/ti/p/@704xslsr" style="color:#037a33; font-weight:600;">LINE (@704xslsr)</a> for immediate assistance.</p>
-            <button onclick="resetForm()" class="form-reset-btn">Try Again</button>
-          </div>
-
-          <p class="text-center" style="margin-top:24px; font-size:0.95rem; color:#4b5563;">
-            Looking to work with us rather than request a quote?
-            Read the <a href="/partners" style="color:#4f46e5; font-weight:600;">partnership enquiry page</a>.
-          </p>
+          <aside class="contact-aside" aria-label="Other ways to contact Move Out Japan">
+            <h2>Other ways to reach us</h2>
+            <p>If the form does not work for any reason, email or message us directly. Your request is just as welcome.</p>
+            <ul class="contact-list">
+              <li>
+                <span class="contact-label">Email</span>
+                <a href="mailto:dineshbista123@outlook.com?subject=Move%20Out%20Japan%20-%20General%20Enquiry">dineshbista123@outlook.com</a>
+              </li>
+              <li>
+                <span class="contact-label">LINE</span>
+                <a href="https://line.me/ti/p/@704xslsr" target="_blank" rel="noopener noreferrer">@704xslsr</a>
+              </li>
+            </ul>
+            <p class="contact-note">We reply when we can. We do not promise a fixed response time, because every move is different.</p>
+            <p class="contact-note">Looking to work with us rather than request a quote? Read the <a href="/partners">partnership enquiry page</a>.</p>
+          </aside>
         </div>
       </div>
     </section>

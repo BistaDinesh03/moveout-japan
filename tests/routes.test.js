@@ -271,7 +271,7 @@ test('every element ID main.js looks up actually exists in the markup', () => {
   );
 });
 
-test('every form element main.js queries exists in both form pages', () => {
+test('every form element main.js queries exists on the contact page', () => {
   const main = fs.readFileSync(path.join(ROOT, 'assets', 'js', 'main.js'), 'utf8');
 
   const selectors = new Set(
@@ -279,30 +279,29 @@ test('every form element main.js queries exists in both form pages', () => {
   );
   assert.ok(selectors.size >= 4, 'expected the four form field lookups');
 
-  for (const file of ['index.html', 'contact.html']) {
-    const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
-    for (const s of selectors) {
-      assert.ok(html.includes(`id="${s}"`), `${file}: missing element #${s}`);
-    }
+  // The quote form lives only on /contact. The homepage is a guide-led page
+  // and deliberately carries no form.
+  const html = fs.readFileSync(path.join(ROOT, 'contact.html'), 'utf8');
+  for (const s of selectors) {
+    assert.ok(html.includes(`id="${s}"`), `contact.html: missing element #${s}`);
   }
 });
 
 test('each form field sits inside a .form-group (required by error rendering)', () => {
-  for (const file of ['index.html', 'contact.html']) {
-    const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
-    for (const field of ['name', 'email', 'location', 'items']) {
-      const idx = html.indexOf(`id="${field}"`);
-      assert.ok(idx !== -1, `${file}: field #${field} missing`);
+  const file = 'contact.html';
+  const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  for (const field of ['name', 'email', 'location', 'items']) {
+    const idx = html.indexOf(`id="${field}"`);
+    assert.ok(idx !== -1, `${file}: field #${field} missing`);
 
-      // Walk back to the nearest opening div and require .form-group, which is
-      // what setFieldError() traverses to in order to insert the message.
-      const before = html.slice(Math.max(0, idx - 600), idx);
-      const lastOpen = before.lastIndexOf('<div');
-      assert.ok(
-        lastOpen !== -1 && /class="form-group"/.test(before.slice(lastOpen)),
-        `${file}: #${field} is not inside a .form-group — inline errors would not render`
-      );
-    }
+    // Walk back to the nearest opening div and require .form-group, which is
+    // what setFieldError() traverses to in order to insert the message.
+    const before = html.slice(Math.max(0, idx - 600), idx);
+    const lastOpen = before.lastIndexOf('<div');
+    assert.ok(
+      lastOpen !== -1 && /class="form-group"/.test(before.slice(lastOpen)),
+      `${file}: #${field} is not inside a .form-group — inline errors would not render`
+    );
   }
 });
 
@@ -455,44 +454,47 @@ test('every referenced favicon asset exists', () => {
 // Forms
 // --------------------------------------------------------------------------
 
-test('both quote forms ship with matching markup', () => {
-  for (const file of ['index.html', 'contact.html']) {
-    const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+test('the quote form ships with matching markup on the contact page', () => {
+  const file = 'contact.html';
+  const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
 
-    assert.match(html, /<form id="priceCheckForm"/, `${file}: form missing`);
-    assert.match(html, /novalidate/, `${file}: novalidate expected (custom inline validation)`);
-    assert.match(html, /method="post"/, `${file}: method=post prevents PII in URLs without JS`);
+  assert.match(html, /<form id="priceCheckForm"/, `${file}: form missing`);
+  assert.match(html, /novalidate/, `${file}: novalidate expected (custom inline validation)`);
+  assert.match(html, /method="post"/, `${file}: method=post prevents PII in URLs without JS`);
 
-    // Length limits in markup must match quote-form.js LIMITS.
-    assert.match(html, /id="name"[^>]*maxlength="100"/, `${file}: name maxlength`);
-    assert.match(html, /id="email"[^>]*maxlength="254"/, `${file}: email maxlength`);
-    assert.match(html, /id="items"[^>]*maxlength="2000"/, `${file}: items maxlength`);
+  // Length limits in markup must match quote-form.js LIMITS.
+  assert.match(html, /id="name"[^>]*maxlength="100"/, `${file}: name maxlength`);
+  assert.match(html, /id="email"[^>]*maxlength="254"/, `${file}: email maxlength`);
+  assert.match(html, /id="items"[^>]*maxlength="2000"/, `${file}: items maxlength`);
 
-    // Accessible error plumbing.
-    assert.match(html, /id="formStatus"[^>]*role="alert"/, `${file}: live region missing`);
-    assert.match(html, /id="errorMessage"/, `${file}: failure message target missing`);
-    assert.match(html, /id="confirmationNote"[^>]*display:none/, `${file}: confirmation claim must be conditional`);
+  // Accessible error plumbing.
+  assert.match(html, /id="formStatus"[^>]*role="alert"/, `${file}: live region missing`);
+  assert.match(html, /id="errorMessage"/, `${file}: failure message target missing`);
+  assert.match(html, /id="confirmationNote"[^>]*display:none/, `${file}: confirmation claim must be conditional`);
 
-    // The privacy notice must be reachable from the form.
-    assert.match(html, /href="\/privacy"/, `${file}: privacy link missing`);
+  // The privacy notice must be reachable from the form.
+  assert.match(html, /href="\/privacy"/, `${file}: privacy link missing`);
 
-    // The core must load before main.js.
-    const qf = html.indexOf('/assets/js/quote-form.js');
-    const main = html.indexOf('/assets/js/main.js');
-    assert.ok(qf !== -1, `${file}: quote-form.js not loaded`);
-    assert.ok(main !== -1, `${file}: main.js not loaded`);
-    assert.ok(qf < main, `${file}: quote-form.js must load before main.js`);
-  }
+  // The core must load before main.js.
+  const qf = html.indexOf('/assets/js/quote-form.js');
+  const main = html.indexOf('/assets/js/main.js');
+  assert.ok(qf !== -1, `${file}: quote-form.js not loaded`);
+  assert.ok(main !== -1, `${file}: main.js not loaded`);
+  assert.ok(qf < main, `${file}: quote-form.js must load before main.js`);
+
+  // The homepage is intentionally form-free: its job is to guide, not to
+  // capture data. A form may only exist on /contact.
+  const homepage = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  assert.ok(!/<form\b/.test(homepage), 'index.html must not carry a form');
 });
 
-test('the confirmation email claim exists in both success panels', () => {
-  for (const file of ['index.html', 'contact.html']) {
-    const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
-    assert.match(html, /<p id="confirmationNote"/, `${file}: confirmationNote element missing`);
-    // The unconditional claim must be gone.
-    assert.ok(
-      !/<p[^>]*>.*A confirmation email has been sent to your inbox\./.test(html.replace(/<p id="confirmationNote"[^>]*>/, '')),
-      `${file}: found an unconditional confirmation-email claim`
-    );
-  }
+test('the confirmation email claim is conditional on the contact page', () => {
+  const file = 'contact.html';
+  const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  assert.match(html, /<p id="confirmationNote"/, `${file}: confirmationNote element missing`);
+  // The unconditional claim must be gone.
+  assert.ok(
+    !/<p[^>]*>.*A confirmation email has been sent to your inbox\./.test(html.replace(/<p id="confirmationNote"[^>]*>/, '')),
+    `${file}: found an unconditional confirmation-email claim`
+  );
 });
