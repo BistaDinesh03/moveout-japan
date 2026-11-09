@@ -308,7 +308,7 @@ test('the catalogue lists the article with the right date and category', () => {
   assert.match(post.slug, /^[a-z0-9-]+$/, 'slug must be URL-safe');
   assert.ok(post.image && fs.existsSync(path.join(ROOT, post.image.slice(1))),
     'catalogue image must point at a real file');
-  assert.equal(posts.length, 4, `expected 4 published articles, found ${posts.length}`);
+  assert.equal(posts.length, 5, `expected 5 published articles, found ${posts.length}`);
 });
 
 test('sitemap.xml lists the article with the right URL and lastmod', () => {
@@ -331,5 +331,5 @@ test('sitemap.html advertises the article and the correct blog count', () => {
   const count = html.match(/Blog &amp; Guides <span class="total-pages">([^<]+)<\/span>/)
     || html.match(/Blog & Guides <span class="total-pages">([^<]+)<\/span>/);
   assert.ok(count, 'missing blog page count');
-  assert.equal(count[1], '5 pages', 'page count must cover blog home + 4 articles');
+  assert.equal(count[1], '6 pages', 'page count must cover blog home + 5 articles');
 });

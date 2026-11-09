@@ -1,3 +1,22 @@
+# Internal files must not be served from the public site.
+# Cloudflare Pages publishes the repository root, so these paths would
+# otherwise expose tests, local tooling, repository notes and README content.
+# Target "/" and never "/index.html": Cloudflare normalises /index.html to /
+# and silently discards any wildcard rule it believes could loop back.
+# functions/_middleware.js is the backstop for percent-encoded spellings,
+# which redirect matching cannot see.
+/tests          /  301
+/scripts        /  301
+/research       /  301
+/functions      /  301
+/README.md      /  301
+/.gitignore     /  301
+/_routes.json   /  301
+/tests/*        /  301
+/scripts/*      /  301
+/research/*     /  301
+/functions/*    /  301
+
 /how-it-works      /pages/how-it-works.html        200
 /services          /pages/services.html            200
 /pricing           /pages/pricing.html             200

@@ -45,3 +45,26 @@
 /robots.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
+
+# Defence in depth: if a redirect above is ever removed, these paths must not
+# be indexed. The redirect is the primary control; this header is a backstop.
+/tests/*
+  X-Robots-Tag: noindex, nofollow
+
+/scripts/*
+  X-Robots-Tag: noindex, nofollow
+
+/research/*
+  X-Robots-Tag: noindex, nofollow
+
+/functions/*
+  X-Robots-Tag: noindex, nofollow
+
+/_routes.json
+  X-Robots-Tag: noindex, nofollow
+
+/README.md
+  X-Robots-Tag: noindex, nofollow
+
+/.gitignore
+  X-Robots-Tag: noindex, nofollow
