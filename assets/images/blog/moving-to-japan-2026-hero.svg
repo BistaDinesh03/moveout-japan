@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="mojMovingTitle mojMovingDesc">
+  <title id="mojMovingTitle">Moving to Japan in 2026: housing, essential services and local support</title>
+  <desc id="mojMovingDesc">Branded editorial illustration showing an apartment building, a Wi-Fi signal and a settling-in checklist on a navy background.</desc>
+  <defs>
+    <linearGradient id="mojHeroBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1f3a"/>
+      <stop offset="1" stop-color="#162f52"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#mojHeroBg)"/>
+  <circle cx="1080" cy="80" r="230" fill="#b5121b" opacity="0.14"/>
+  <circle cx="1080" cy="80" r="145" fill="#b5121b" opacity="0.20"/>
+  <path d="M0 430 C 210 380, 360 470, 560 430 S 940 380, 1200 430" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="2"/>
+
+  <g font-family="Inter, 'Segoe UI', Arial, sans-serif">
+    <text x="80" y="92" fill="#f4b7bc" font-size="20" font-weight="700" letter-spacing="3">MOVE OUT JAPAN  ·  2026 GUIDE</text>
+    <text x="80" y="188" fill="#ffffff" font-size="68" font-weight="800" letter-spacing="-2">Moving to Japan</text>
+    <text x="80" y="258" fill="#ffffff" font-size="68" font-weight="800" letter-spacing="-2">in 2026</text>
+    <text x="80" y="316" fill="#d7e0ee" font-size="29" font-weight="500">Housing · essential services · local support</text>
+    <rect x="80" y="356" width="88" height="4" rx="2" fill="#b5121b"/>
+    <text x="80" y="404" fill="#aebdd4" font-size="21">A source-based guide for foreign residents</text>
+    <text x="80" y="438" fill="#8fa2bd" font-size="19">Official links checked 15 November 2026</text>
+  </g>
+
+  <g transform="translate(845 96)">
+    <rect width="285" height="300" rx="34" fill="#ffffff" opacity="0.97"/>
+    <g fill="none" stroke="#0b1f3a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M62 142 142 70l80 72"/>
+      <path d="M78 136v92a12 12 0 0 0 12 12h104a12 12 0 0 0 12-12v-92"/>
+      <path d="M122 240v-50h40v50"/>
+      <path d="M190 72v-24h22v43"/>
+    </g>
+    <circle cx="246" cy="58" r="13" fill="#b5121b"/>
+    <g fill="none" stroke="#b5121b" stroke-width="6" stroke-linecap="round">
+      <path d="M206 232a34 34 0 0 1 34-34"/>
+      <path d="M192 246a48 48 0 0 1 48-48"/>
+    </g>
+    <g fill="#0b1f3a" opacity="0.9">
+      <rect x="52" y="282" width="74" height="8" rx="4"/>
+      <rect x="138" y="282" width="96" height="8" rx="4" opacity="0.45"/>
+    </g>
+  </g>
+
+  <g transform="translate(1080 470)" fill="#ffffff" opacity="0.55">
+    <circle cx="0" cy="0" r="4"/>
+    <circle cx="22" cy="0" r="4"/>
+    <circle cx="44" cy="0" r="4"/>
+  </g>
+</svg>

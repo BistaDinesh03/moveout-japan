@@ -10,6 +10,14 @@
 // `tests/blog.test.js` enforces this — do not add an entry without a file.
 const BLOG_POSTS = [
   {
+    slug: 'moving-to-japan-housing-services-support',
+    title: 'Moving to Japan in 2026: How to Find Housing, Essential Services, and Reliable Local Support',
+    excerpt: 'A source-based guide to renting an apartment, setting up internet and mobile, furnishing a home, handling the first 14 days of paperwork, and checking local providers.',
+    category: 'Moving In',
+    date: '2026-11-15',
+    image: '/assets/images/blog/moving-to-japan-2026-social.png'
+  },
+  {
     slug: 'partner-with-move-out-japan',
     title: 'Partner With Move Out Japan: Referrals, Content and Service Collaborations',
     excerpt: 'How partnership enquiries work, what we assess, what we will and will not publish, and how affiliate or sponsored links are disclosed.',
