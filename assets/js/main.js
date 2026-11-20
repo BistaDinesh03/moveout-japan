@@ -10,6 +10,14 @@
 // `tests/blog.test.js` enforces this — do not add an entry without a file.
 const BLOG_POSTS = [
   {
+    slug: 'hiring-foreign-employees-japan-relocation-support',
+    title: 'Hiring Foreign Employees in Japan? A Practical Guide to Relocation, Housing and Settling-In Support',
+    excerpt: 'What employers should arrange before arrival, how housing and settling-in support work, what Specified Skilled Worker (i) requires, and how to choose a relocation partner.',
+    category: 'For Employers',
+    date: '2026-11-20',
+    image: '/assets/images/blog/hiring-foreign-employees-social.png'
+  },
+  {
     slug: 'moving-to-japan-housing-services-support',
     title: 'Moving to Japan in 2026: How to Find Housing, Essential Services, and Reliable Local Support',
     excerpt: 'A source-based guide to renting an apartment, setting up internet and mobile, furnishing a home, handling the first 14 days of paperwork, and checking local providers.',

@@ -377,7 +377,7 @@ test('sitemap.xml lists the article, partners page and disclosure with the right
   const xml = read(path.join(ROOT, 'sitemap.xml'));
   const expected = [
     [CANONICAL, '2026-11-08'],
-    [PARTNERS_URL, '2026-11-15'],
+    [PARTNERS_URL, '2026-11-20'],
     [DISCLOSURE_URL, '2026-11-08']
   ];
   for (const [url, date] of expected) {
@@ -394,8 +394,8 @@ test('sitemap.html lists all three pages and the updated counts', () => {
     assert.ok(html.includes(`href="${href}"`), `sitemap.html missing ${href}`);
   }
   assert.match(html, /Main Pages <span class="total-pages">9 pages<\/span>/);
-  assert.match(html, /Blog &(?:amp;)? Guides <span class="total-pages">7 pages<\/span>/);
-  assert.match(html, /Last updated: November 15, 2026/);
+  assert.match(html, /Blog &(?:amp;)? Guides <span class="total-pages">8 pages<\/span>/);
+  assert.match(html, /Last updated: November 20, 2026/);
 });
 
 test('the shared footer and contact page link to the new pages', () => {

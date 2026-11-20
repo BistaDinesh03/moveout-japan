@@ -270,12 +270,12 @@ test('internal links are extensionless and cover the conversion paths', () => {
 // 4. Catalogue, sitemap and cross-site discovery
 // ============================================================
 
-test('the catalogue lists the guide first with the right date and category', () => {
+test('the catalogue lists the guide with the right date and category', () => {
   const posts = readBlogPosts();
-  assert.equal(posts.length, 6, `expected 6 published articles, found ${posts.length}`);
+  assert.equal(posts.length, 7, `expected 7 published articles, found ${posts.length}`);
 
-  const post = posts[0];
-  assert.equal(post.slug, SLUG, 'the newest article should lead the catalogue');
+  const post = posts.find((p) => p.slug === SLUG);
+  assert.ok(post, 'the arrival guide is missing from BLOG_POSTS');
   assert.equal(post.date, PUB_DATE);
   assert.equal(post.category, 'Moving In');
   assert.match(post.slug, /^[a-z0-9-]+$/, 'slug must be URL-safe');
@@ -290,24 +290,27 @@ test('sitemap.xml lists the guide and the refreshed blog and partner pages', () 
   assert.ok(locs.includes(CANONICAL), `sitemap missing ${CANONICAL}`);
   assert.ok(!locs.some((l) => l.endsWith('.html')), 'sitemap must not advertise .html URLs');
 
-  for (const url of [CANONICAL, `${ORIGIN}/blog/`, `${ORIGIN}/partners`]) {
+  const check = (url, date) => {
     const block = xml.split(/<url>/).find((b) => b.includes(`<loc>${url}</loc>`));
     assert.ok(block, `sitemap missing ${url}`);
-    assert.match(block, /<lastmod>\s*2026-11-15\s*<\/lastmod>/,
+    assert.match(block, new RegExp(`<lastmod>\\s*${date}\\s*</lastmod>`),
       `${url} must carry the date its content last changed`);
-  }
+  };
+  check(CANONICAL, PUB_DATE);
+  check(`${ORIGIN}/blog/`, '2026-11-20');
+  check(`${ORIGIN}/partners`, '2026-11-20');
 });
 
 test('sitemap.html advertises the guide and the new counts', () => {
   const html = read(path.join(ROOT, 'sitemap.html'));
   assert.ok(html.includes(`/blog/posts/${SLUG}`), 'sitemap.html missing the new guide');
-  assert.match(html, /Blog &(?:amp;)? Guides <span class="total-pages">7 pages<\/span>/);
-  assert.match(html, /Last updated: November 15, 2026/);
+  assert.match(html, /Blog &(?:amp;)? Guides <span class="total-pages">8 pages<\/span>/);
+  assert.match(html, /Last updated: November 20, 2026/);
 });
 
 test('the partners page links to the guide for arrival-side enquiries', () => {
   const partners = read(path.join(ROOT, 'partners.html'));
   assert.ok(partners.includes(`href="/blog/posts/${SLUG}"`),
     'partners page should link to the arrival-side guide');
-  assert.match(partners, /Page updated 15 November 2026/);
+  assert.match(partners, /Page updated 20 November 2026/);
 });
