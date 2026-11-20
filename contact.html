@@ -37,7 +37,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 
@@ -70,17 +69,26 @@
       <div class="container">
         <div class="contact-layout">
           <div class="contact-form">
-            <!-- method="post" so that if JavaScript ever fails to load, the
-                 browser cannot place name/email in a URL query string, where it
-                 would end up in hosting request logs. With JS active the submit
-                 is always prevented before any request is made. -->
-            <form id="priceCheckForm" onsubmit="return handleSubmit(event)" method="post" novalidate>
+            <!-- The native POST action goes to the standard FormSubmit endpoint.
+                 With JavaScript active, handleSubmit() prevents the default and
+                 sends the same validated data to FormSubmit's AJAX endpoint so
+                 the visitor stays on this page. Without JavaScript, the native
+                 POST still works. Nothing puts personal data in a URL. -->
+            <form id="priceCheckForm" onsubmit="return handleSubmit(event)" action="https://formsubmit.co/bistadinesh642@gmail.com" method="post" novalidate>
               <div id="formStatus" class="form-status" role="alert" aria-live="assertive" style="display:none;"></div>
 
+              <!-- FormSubmit's honeypot: real visitors and screen readers never
+                   fill it; spam that does fill it is silently ignored. -->
               <div class="hp-field" aria-hidden="true">
                 <label for="website">Leave this field empty</label>
-                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off">
               </div>
+
+              <!-- FormSubmit control fields. CAPTCHA is intentionally left
+                   enabled; no CAPTCHA-disable field is present in this form. -->
+              <input type="hidden" name="_subject" value="Move Out Japan - New quote request">
+              <input type="hidden" name="submission_type" value="Quote request">
+              <input type="hidden" name="source_page" value="/contact">
 
               <div class="form-group">
                 <label for="name">Your Name *</label>
@@ -152,7 +160,6 @@
 
   <div id="site-footer"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="/assets/js/quote-form.js"></script>
   <script src="/assets/js/main.js"></script>
 </body>

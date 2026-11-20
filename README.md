@@ -59,7 +59,7 @@ Move Out Japan helps **international students, foreign workers, and expats** dis
 | **Frontend** | HTML5, CSS3, Vanilla JavaScript (no framework, no bundler) |
 | **Hosting** | Cloudflare Pages |
 | **Fonts** | Google Fonts (Inter) |
-| **Forms** | EmailJS (browser-side only) |
+| **Forms** | FormSubmit (AJAX endpoint, browser-side only) |
 | **SEO** | Schema.org structured data, Open Graph, Twitter Cards |
 | **Tests** | Node.js built-in test runner (`node --test`) — **no dependencies** |
 | **Analytics** | **None.** No analytics or tracking of any kind is implemented. |
@@ -84,18 +84,18 @@ Three things happen at runtime, all in the browser:
 2. **Client-side blog catalogue** — `BLOG_POSTS` in `main.js` drives the blog
    preview, listing, and search. Blog articles themselves are plain HTML files.
 3. **Quote form** — `assets/js/quote-form.js` validates the input, then
-   `main.js` delivers it through EmailJS to the owner's inbox.
+   `main.js` delivers it through FormSubmit to the owner's inbox.
 
 ### Two JavaScript modules
 
 | File | Responsibility | Runs in Node? |
 |------|----------------|---------------|
 | `assets/js/quote-form.js` | Pure validation + submission orchestration. **Contains no DOM access and no reference to any email provider.** | Yes |
-| `assets/js/main.js` | DOM behaviour, header/footer, blog rendering, EmailJS transports | No (needs `document`) |
+| `assets/js/main.js` | DOM behaviour, header/footer, blog rendering, FormSubmit transport | No (needs `document`) |
 
 `quote-form.js` deliberately cannot send an email on its own: delivery only
 happens through a `transport` function that the caller injects. The browser
-injects the real EmailJS transport; tests inject a mock. This is what makes the
+injects the real FormSubmit transport; tests inject a mock. This is what makes the
 test suite safe to run.
 
 ---
@@ -166,23 +166,23 @@ this repository.
 
 ## Contact Form Setup
 
-EmailJS is configured with these identifiers (all public, client-side values —
-**not secrets**):
+The quote form posts to FormSubmit. The receiving address is public by design
+(it appears in the form action); **no API key, token or secret is stored in this
+repository**.
 
 | Purpose | Value |
 |---------|-------|
-| Public key | `Hx0NbUvVMgUQ2odp_` |
-| Service ID | `service_sbebnme` |
-| Owner notification template | `template_73vpqgp` |
-| Visitor confirmation template | `template_a6nc3t4` |
-| Owner inbox | `bistadinesh642@gmail.com` |
+| Native form action (no-JS fallback) | `https://formsubmit.co/bistadinesh642@gmail.com` |
+| AJAX endpoint used by `main.js` | `https://formsubmit.co/ajax/bistadinesh642@gmail.com` |
+| Receiving inbox | `bistadinesh642@gmail.com` |
+| Reply-To | the visitor's validated email, sent as FormSubmit's `_replyto` field |
+| Subject | `Move Out Japan - New quote request`, sent as `_subject` |
+| Spam protection | FormSubmit CAPTCHA stays enabled; `_honey` honeypot is also checked locally |
 
-**Required EmailJS dashboard configuration (cannot be set from this repo):**
-
-1. **Allowed domains** → `moveoutjapan.pages.dev`. Without this, anyone can
-   call the EmailJS API with these public identifiers and send mail in the
-   site's name, exhausting the quota.
-2. Enable **reCAPTCHA / Turnstile** if available on the plan.
+**One-time activation (cannot be done from this repo):** submit the form once
+from the live site and confirm the activation email sent to
+`bistadinesh642@gmail.com`. Until that confirmation is completed, FormSubmit
+will not deliver messages. Tests never send a live submission.
 
 Input limits enforced by `quote-form.js` (and mirrored as `maxlength`
 attributes in the HTML):
@@ -230,10 +230,11 @@ Available test files:
 | `tests/routes.test.js` | `_redirects` sanity (no self-looping rule, nothing for `/contact`), real `404.html`, internal links resolve, security headers present and CSP covers every origin the site loads, manifest/icons, form markup, and the `main.js` ↔ HTML element-ID contract |
 
 **Email safety:** no test can send an email. `quote-form.js` contains no
-reference to EmailJS or any network API, and `main.js` cannot even be loaded in
-Node because it requires `document`. `tests/email-safety.test.js` asserts both
-of those facts and runs with `globalThis.fetch` replaced by a function that
-throws.
+reference to any email provider or network API, and `main.js` cannot even be
+loaded in Node because it requires `document`. `tests/email-safety.test.js`
+asserts both of those facts and runs with `globalThis.fetch` replaced by a
+function that throws. `tests/formsubmit.test.js` pin the endpoint, Reply-To,
+subject, honeypot and CAPTCHA settings in source.
 
 ---
 
@@ -245,7 +246,7 @@ node scripts/serve-local.js          # http://127.0.0.1:8080
 
 A dependency-free static server that also parses `_headers` and `_redirects`,
 so response headers and routing can be inspected before deploying. It does not
-send email and does not contact EmailJS.
+send email and does not contact FormSubmit.
 
 ---
 
@@ -276,11 +277,11 @@ curl.exe -s -o NUL -D - "https://moveoutjapan.pages.dev/" | Select-String -Patte
 
 Be aware of these — they are documented rather than hidden:
 
-- **Client-side validation is not a security boundary.** EmailJS is called
-  straight from the browser with a public key, so the send endpoint can be
-  invoked directly by anyone. Server-side validation and rate limiting would
-  require a Cloudflare Pages Function or Worker, which would be an
-  architectural change.
+- **Client-side validation is not a security boundary.** FormSubmit is called
+  straight from the browser, so its endpoint can be invoked directly by anyone.
+  Spam filtering relies on FormSubmit's CAPTCHA and honeypot. Server-side
+  validation and rate limiting would require a Cloudflare Pages Function or
+  Worker, which would be an architectural change.
 - **Navigation and footer require JavaScript.**
 - **The site claims no analytics and runs none.** Privacy is preserved at the
   cost of having no traffic data.

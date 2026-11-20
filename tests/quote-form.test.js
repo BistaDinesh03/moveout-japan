@@ -5,7 +5,7 @@
  *
  * EMAIL SAFETY: every test in this file injects a mock transport. The module
  * under test contains no reference to any email provider or network API, so
- * no code path here can reach EmailJS. tests/email-safety.test.js asserts
+ * no code path here can reach FormSubmit. tests/email-safety.test.js asserts
  * that property independently.
  */
 
@@ -242,7 +242,7 @@ test('5xx is classified as a retryable service problem', () => {
   assert.throws(() => QF.assertProviderSuccess({ status: 500 }), (e) => e.code === 'network');
   const info = QF.classifyError(Object.assign(new Error('x'), { code: 'network', status: 503 }));
   assert.equal(info.code, 'network');
-  assert.match(info.userMessage, /unavailable|reach the network/i);
+  assert.match(info.userMessage, /unavailable|could not reach/i);
 });
 
 test('malformed responses are rejected rather than treated as success', () => {
@@ -258,8 +258,36 @@ test('malformed responses are rejected rather than treated as success', () => {
   assert.doesNotThrow(() => QF.assertProviderSuccess({ unexpected: 'shape' }));
 });
 
+// FormSubmit answers HTTP 200 with a JSON success flag — check it explicitly.
+test('FormSubmit receipts require an explicit positive success flag', () => {
+  assert.deepEqual(QF.assertFormSubmitResponse({ success: true }), { success: true });
+  assert.deepEqual(QF.assertFormSubmitResponse({ success: 'true', message: 'OK' }),
+    { success: 'true', message: 'OK' });
+
+  const refusals = [
+    { success: false },
+    { success: 'false', message: 'not confirmed' },
+    { error: 'bad request' },
+    { success: true, message: 'error: rejected by spam filter' }
+  ];
+  for (const receipt of refusals) {
+    assert.throws(() => QF.assertFormSubmitResponse(receipt),
+      (e) => e.code === 'provider', `must reject: ${JSON.stringify(receipt)}`);
+  }
+});
+
+test('ambiguous or non-JSON receipts are never reported as sent', () => {
+  for (const receipt of [null, undefined, 'OK', 200, true, [], { message: 'queued' }]) {
+    assert.throws(() => QF.assertFormSubmitResponse(receipt),
+      (e) => e.code === 'malformed', `must treat as malformed: ${JSON.stringify(receipt)}`);
+  }
+});
+
 test('classifyError maps network, unavailable and unknown safely', () => {
   assert.equal(QF.classifyError(new TypeError('Failed to fetch')).code, 'network');
+  const net = QF.classifyError(Object.assign(new Error('x'), { code: 'network' }));
+  assert.equal(net.code, 'network');
+  assert.match(net.userMessage, /could not reach/i);
   assert.equal(QF.classifyError(Object.assign(new Error('x'), { code: 'unavailable' })).code, 'unavailable');
   assert.equal(QF.classifyError(new Error('boom')).code, 'unknown');
   const info = QF.classifyError(new Error('boom'));

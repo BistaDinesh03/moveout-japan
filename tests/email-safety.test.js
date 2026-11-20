@@ -10,7 +10,7 @@
  * It asserts three independent things:
  *   1. The module under test (quote-form.js) contains no reference to any
  *      email provider or network API at all.
- *   2. The only file that CAN reach EmailJS (main.js) cannot be loaded in
+ *   2. The only file that CAN reach FormSubmit (main.js) cannot be loaded in
  *      Node, because it requires a browser `document` — so no test can
  *      accidentally obtain the real transport.
  *   3. With globalThis.fetch replaced by a function that throws, delivery
@@ -110,23 +110,29 @@ test('quote-form.js exposes an injectable transport contract only', () => {
   assert.match(src, /typeof o\.transport (?:!==|===) 'function'/, 'transport must be type-checked');
 });
 
-test('main.js declares provider access in exactly two transport factories', () => {
+test('main.js has exactly one network path, to the FormSubmit AJAX endpoint', () => {
   const src = fs.readFileSync(MAIN, 'utf8');
-  const sends = src.match(/emailjs\.send\(/g) || [];
-  assert.equal(sends.length, 2, 'expected exactly owner + confirmation transports');
+  const fetches = src.match(/\bfetch\s*\(/g) || [];
+  assert.equal(fetches.length, 1, 'there must be exactly one fetch call site');
 
-  // Both must sit behind the readiness guard.
-  const factories = (src.match(/function create(?:Owner|Confirm)Transport\(\)/g) || []);
-  assert.equal(factories.length, 2);
-  assert.match(src, /function emailJsReady\(\)/);
+  const factories = src.match(/function createOwnerTransport\(\)/g) || [];
+  assert.equal(factories.length, 1, 'one owner transport only');
+  assert.ok(!/createConfirmTransport/.test(src), 'no second provider path');
+  assert.ok(!/emailjs/i.test(src), 'EmailJS must be fully removed');
 
-  // The init call must be guarded by typeof, not a bare reference.
-  assert.match(src, /typeof emailjs !== 'undefined'/);
+  assert.ok(/FORMSUBMIT_ENDPOINT\s*=\s*'https:\/\/formsubmit\.co\/ajax\/' \+ FORMSUBMIT_EMAIL/.test(src),
+    'the documented AJAX endpoint must use the registered FormSubmit recipient');
+  assert.ok(/typeof fetch !== 'function'/.test(src),
+    'the transport must check that fetch exists before sending');
+  assert.ok(/response\.ok/.test(src),
+    'an HTTP-level failure must be detected before claiming success');
+  assert.match(src, /assertFormSubmitResponse\(data\)/,
+    'FormSubmit JSON must be checked for an explicit success flag');
 });
 
 test('main.js cannot be loaded in Node — no test can reach the real transport', () => {
   // main.js calls document.addEventListener at top level, so loading it in a
-  // non-browser runtime must fail. If this ever passes, the real EmailJS
+  // non-browser runtime must fail. If this ever passes, the real FormSubmit
   // transport becomes reachable from tests and this gate must be revisited.
   assert.throws(
     () => require(MAIN),
@@ -205,7 +211,7 @@ test('no test file loads main.js', () => {
 
 test('no test file has the capability to open a network connection', () => {
   // This tests CAPABILITY, not text. routes.test.js legitimately asserts that
-  // the CSP mentions api.emailjs.com, so searching for that literal would be a
+  // the CSP mentions formsubmit.co, so searching for that literal would be a
   // false positive. What must never appear is a way to actually send bytes.
   const NETWORK_MODULES = [
     "'http'", "'https'", "'net'", "'tls'", "'dgram'", "'http2'",

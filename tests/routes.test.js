@@ -387,17 +387,20 @@ test('CSP covers the origins the application actually uses', () => {
   );
 
   // Required to keep the site working:
-  assert.ok(directives['script-src'].includes('https://cdn.jsdelivr.net'), 'EmailJS CDN must be allowed in script-src');
   assert.ok(directives['script-src'].includes("'self'"));
+  assert.ok(!directives['script-src'].some(o => o.startsWith('https://')),
+    'no external script origin is needed now that EmailJS is removed');
   assert.ok(directives['style-src'].includes('https://fonts.googleapis.com'), 'Google Fonts CSS must be allowed');
   assert.ok(directives['font-src'].includes('https://fonts.gstatic.com'), 'Google Fonts files must be allowed');
-  assert.ok(directives['connect-src'].includes('https://api.emailjs.com'), 'EmailJS API must be reachable');
+  assert.ok(directives['connect-src'].includes('https://formsubmit.co'), 'FormSubmit API must be reachable');
+  assert.ok(directives['connect-src'].includes("'self'"));
 
   // Required to protect the site:
   assert.deepEqual(directives['frame-ancestors'], ["'none'"], 'clickjacking protection');
   assert.equal(directives['object-src'][0], "'none'");
   assert.equal(directives['base-uri'][0], "'self'");
-  assert.equal(directives['form-action'][0], "'self'");
+  assert.deepEqual(directives['form-action'], ["'self'", 'https://formsubmit.co'],
+    'only this site and FormSubmit may receive forms');
 
   // The inline handlers are a known, documented exception.
   assert.ok(

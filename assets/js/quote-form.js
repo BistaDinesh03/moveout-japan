@@ -4,11 +4,11 @@
    DESIGN NOTES (important for reviewers):
 
    * This module contains NO DOM access and NO reference to any email
-     provider (no `emailjs`, no `fetch`, no XHR, no network API of any kind).
+     provider (no `emailjs`, no `formsubmit.co`, no `fetch`, no XHR, no network API of any kind).
      It therefore CANNOT send an email by itself.
 
    * Delivery happens exclusively through a `transport` function that the
-     caller injects. In the browser, `main.js` builds the real EmailJS
+     caller injects. In the browser, `main.js` builds the real FormSubmit
      transport. In tests, a mock transport is injected instead, so the live
      provider is structurally unreachable — not merely "not called".
 
@@ -221,6 +221,46 @@
   }
 
   /**
+   * Inspect a FormSubmit AJAX receipt. FormSubmit answers HTTP 200 with a JSON
+   * body such as { success: "true" } or { success: "false", message: "..." }.
+   * A 200 is therefore NOT proof of delivery: only an explicit positive
+   * success flag is. Anything ambiguous is treated as malformed, and an
+   * explicit failure is treated as a provider refusal. Never call this from
+   * the network-free core — the injected transport supplies the parsed body.
+   *
+   * @param {*} data parsed JSON body returned by the transport
+   * @returns {*} the same body when it is an unambiguous success
+   * @throws {Error} code='provider' | 'malformed'
+   */
+  function assertFormSubmitResponse(data) {
+    if (data === null || typeof data !== 'object' || Array.isArray(data)) {
+      var badShape = new Error('FormSubmit returned an unexpected response');
+      badShape.code = 'malformed';
+      throw badShape;
+    }
+
+    var flag = data.success;
+    var text = typeof data.message === 'string' ? data.message.toLowerCase() : '';
+    var errorText = typeof data.error === 'string' ? data.error.toLowerCase() : '';
+    var explicitlyFailed = flag === false || flag === 'false' || !!data.error ||
+      /error|fail|invalid|not (?:yet )?confirmed|unverified/.test(text) ||
+      /error|fail|invalid/.test(errorText);
+
+    if (explicitlyFailed) {
+      var refused = new Error('FormSubmit rejected the submission');
+      refused.code = 'provider';
+      throw refused;
+    }
+
+    if (flag === true || flag === 'true') return data;
+
+    // Missing or unrecognised success flag: we cannot claim delivery.
+    var ambiguous = new Error('FormSubmit returned no usable success flag');
+    ambiguous.code = 'malformed';
+    throw ambiguous;
+  }
+
+  /**
    * Classify any thrown value into a stable, user-safe category.
    * Never leaks the raw error text to the UI layer by accident.
    *
@@ -233,6 +273,14 @@
         code: 'unavailable',
         status: null,
         userMessage: 'The form service did not load, so nothing was sent. Please refresh the page, or reach us on LINE (@704xslsr).'
+      };
+    }
+
+    if (err && err.code === 'network') {
+      return {
+        code: 'network',
+        status: null,
+        userMessage: 'We could not reach the email service. Please check your connection and try again.'
       };
     }
 
@@ -261,7 +309,7 @@
       };
     }
 
-    // EmailJS rejects with { status, text } for HTTP-level failures.
+    // Some providers reject with { status, text } for HTTP-level failures.
     if (err && typeof err === 'object' && typeof err.status === 'number') {
       var status = err.status;
       if (status >= 500) {
@@ -360,6 +408,7 @@
     validateField: validateField,
     validate: validate,
     assertProviderSuccess: assertProviderSuccess,
+    assertFormSubmitResponse: assertFormSubmitResponse,
     classifyError: classifyError,
     deliver: deliver,
     createSubmitGuard: createSubmitGuard
