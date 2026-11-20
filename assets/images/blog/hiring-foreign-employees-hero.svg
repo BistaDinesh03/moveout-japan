@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="mojHireTitle mojHireDesc">
+  <title id="mojHireTitle">Hiring foreign employees in Japan: employer guide to relocation and settling-in support</title>
+  <desc id="mojHireDesc">Branded editorial illustration showing an office building, an employee ID badge and an onboarding checklist on a navy background.</desc>
+  <defs>
+    <linearGradient id="mojHireBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1f3a"/>
+      <stop offset="1" stop-color="#182f4e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#mojHireBg)"/>
+  <path d="M0 470 L1200 470" stroke="#ffffff" stroke-opacity="0.07" stroke-width="2"/>
+  <circle cx="1120" cy="40" r="200" fill="#b5121b" opacity="0.12"/>
+  <circle cx="1120" cy="40" r="120" fill="#b5121b" opacity="0.18"/>
+
+  <g font-family="Inter, 'Segoe UI', Arial, sans-serif">
+    <text x="80" y="88" fill="#f4b7bc" font-size="19" font-weight="700" letter-spacing="3">MOVE OUT JAPAN  ·  EMPLOYER GUIDE</text>
+    <text x="80" y="178" fill="#ffffff" font-size="62" font-weight="800" letter-spacing="-2">Hiring in Japan?</text>
+    <text x="80" y="245" fill="#ffffff" font-size="62" font-weight="800" letter-spacing="-2">The settling-in guide</text>
+    <text x="80" y="306" fill="#d7e0ee" font-size="28" font-weight="500">Relocation · housing · first-week support</text>
+    <rect x="80" y="342" width="88" height="4" rx="2" fill="#b5121b"/>
+    <text x="80" y="390" fill="#aebdd4" font-size="21">For employers, HR teams and relocation partners</text>
+    <text x="80" y="424" fill="#8fa2bd" font-size="19">Official sources checked 20 November 2026</text>
+  </g>
+
+  <g transform="translate(842 92)">
+    <rect width="292" height="312" rx="30" fill="#ffffff" opacity="0.97"/>
+
+    <!-- Office building -->
+    <g transform="translate(40 38)">
+      <rect x="0" y="24" width="96" height="118" rx="6" fill="none" stroke="#0b1f3a" stroke-width="8"/>
+      <path d="M12 24V10h28v14M56 24V10h28v14" fill="none" stroke="#0b1f3a" stroke-width="8"/>
+      <g fill="#0b1f3a" opacity="0.55">
+        <rect x="12" y="48" width="20" height="20" rx="2"/>
+        <rect x="48" y="48" width="20" height="20" rx="2"/>
+        <rect x="12" y="88" width="20" height="20" rx="2"/>
+        <rect x="48" y="88" width="20" height="20" rx="2"/>
+      </g>
+    </g>
+
+    <!-- ID badge -->
+    <g transform="translate(154 44)">
+      <rect x="0" y="0" width="96" height="126" rx="14" fill="#eef4fb" stroke="#0b1f3a" stroke-width="6"/>
+      <circle cx="48" cy="42" r="19" fill="#0b1f3a" opacity="0.85"/>
+      <path d="M20 96c4-20 16-28 28-28s24 8 28 28" fill="#0b1f3a" opacity="0.85"/>
+      <rect x="22" y="108" width="52" height="6" rx="3" fill="#b5121b"/>
+    </g>
+
+    <!-- Checklist -->
+    <g transform="translate(40 190)">
+      <rect x="0" y="0" width="210" height="82" rx="12" fill="#f5f7fb" stroke="#d7e0ee" stroke-width="3"/>
+      <g stroke="#0f6b3c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M16 22l6 6 10-12"/>
+        <path d="M16 50l6 6 10-12"/>
+      </g>
+      <g fill="#0b1f3a" opacity="0.8">
+        <rect x="46" y="17" width="86" height="8" rx="4"/>
+        <rect x="46" y="45" width="118" height="8" rx="4"/>
+        <rect x="46" y="67" width="66" height="7" rx="3" opacity="0.4"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -185,7 +185,7 @@ test('internal links to the blog index use the canonical /blog/ URL', () => {
 
 test('sitemap.html is current — no stale date, correct copyright', () => {
   const html = read(path.join(ROOT, 'sitemap.html'));
-  assert.match(html, /Last updated: November 15, 2026/,
+  assert.match(html, /Last updated: November 20, 2026/,
     'sitemap.html must carry the date its content last changed');
   assert.ok(!/July 19, 2026/.test(html), 'stale "last updated" date');
 });
@@ -344,7 +344,7 @@ test('the catalogue, sitemap.xml and sitemap.html all carry the new article', ()
   assert.ok(html.includes(`/blog/posts/${SLUG}`), 'sitemap.html missing the new article');
 });
 
-test('the pages whose content changed on 2026-10-11, 2026-11-08 or 2026-11-15 carry the right lastmod', () => {
+test('the pages whose content changed on 2026-10-11, 2026-11-08, 2026-11-15 or 2026-11-20 carry the right lastmod', () => {
   const xml = read(path.join(ROOT, 'sitemap.xml'));
 
   const expectations = [
@@ -362,11 +362,16 @@ test('the pages whose content changed on 2026-10-11, 2026-11-08 or 2026-11-15 ca
       `${ORIGIN}/blog/posts/partner-with-move-out-japan`,
       `${ORIGIN}/pages/affiliate-disclosure`
     ]],
-    // The blog listing gained a sixth article, the partners page gained a
-    // contextual link to it, and the article itself was published.
+    // The blog listing gained a sixth article, and the arrival-side guide
+    // was published on 2026-11-15.
     ['2026-11-15', [
+      `${ORIGIN}/blog/posts/moving-to-japan-housing-services-support`
+    ]],
+    // A seventh article was added to the blog listing and the partners page
+    // gained another contextual link on 2026-11-20.
+    ['2026-11-20', [
       `${ORIGIN}/blog/`,
-      `${ORIGIN}/blog/posts/moving-to-japan-housing-services-support`,
+      `${ORIGIN}/blog/posts/hiring-foreign-employees-japan-relocation-support`,
       `${ORIGIN}/partners`
     ]]
   ];
