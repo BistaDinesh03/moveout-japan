@@ -107,7 +107,13 @@ test('the public contact address is the Outlook address everywhere', () => {
 
   for (const file of files) {
     const text = fs.readFileSync(file, 'utf8');
-    assert.ok(!/@gmail\.com/i.test(text), `${path.relative(ROOT, file)} still contains a Gmail address`);
+    // The only permitted Gmail address is the designated FormSubmit receiving
+    // inbox, which must appear in the form action and the AJAX endpoint.
+    const addresses = text.match(/[A-Za-z0-9._%+-]+@gmail\.com/gi) || [];
+    for (const address of addresses) {
+      assert.equal(address.toLowerCase(), 'bistadinesh642@gmail.com',
+        `${path.relative(ROOT, file)} contains an unexpected Gmail address: ${address}`);
+    }
   }
 
   for (const rel of [
@@ -159,12 +165,12 @@ test('the contact form has an honest failure path and a pre-filled Outlook fallb
   assert.match(contact, /We couldn't send that automatically/i, 'failure heading must be honest');
   assert.match(contact, /Your details are still in the form above/i, 'failure copy must reassure without faking success');
 
-  // The catch branch must surface the failure, not the success panel.
-  assert.match(main, /catch \(err\) \{[\s\S]*showFailure\(/, 'failure must be shown on error');
-  assert.ok(
-    !/catch \(err\) \{[\s\S]*showSuccess\(/.test(main),
-    'the error branch must never call showSuccess'
-  );
+  // Scope the check to the handleSubmit catch branch, not the transport's
+  // own catch blocks earlier in the file.
+  const handleCatch = main.match(/catch \(err\) \{\s*console\.error\('Quote submission failed:'[\s\S]*?\n  \}/);
+  assert.ok(handleCatch, 'the handleSubmit catch branch is missing');
+  assert.match(handleCatch[0], /showFailure\(/, 'failure must be shown on error');
+  assert.ok(!/showSuccess\(/.test(handleCatch[0]), 'the error branch must never call showSuccess');
 
   // The confirmation claim is only shown when a confirmation was actually sent.
   assert.match(main, /result && result\.confirmationSent/, 'confirmation note must be conditional');
@@ -176,8 +182,10 @@ test('the honeypot is present and checked before sending', () => {
   const main = read('assets/js/main.js');
 
   assert.match(contact, /class="hp-field"/, 'honeypot wrapper missing');
-  assert.match(contact, /id="website"/, 'honeypot field missing');
+  assert.match(contact, /id="website"[^>]*name="_honey"/, 'FormSubmit honeypot field missing');
   assert.match(contact, /id="website"[^>]*tabindex="-1"/, 'honeypot must be skipped by keyboard users');
+  assert.ok(!/name="captcha"\s+value="false"|_captcha['"]?\s*:\s*['"]?false/i.test(contact),
+    'CAPTCHA must stay enabled');
 
   assert.match(main, /function honeypotFilled\(\)/, 'honeypot check missing');
   assert.match(main, /if \(honeypotFilled\(\)\)/, 'honeypot must be checked before delivery');
@@ -227,11 +235,12 @@ test('the homepage links only to real, published content', () => {
   }
 });
 
-test('the homepage is guide-led: no form and no EmailJS dependency', () => {
+test('the homepage is guide-led: no form and no provider dependency', () => {
   const html = read('index.html');
 
   assert.ok(!/<form\b/.test(html), 'homepage must not carry a form');
-  assert.ok(!/emailjs/i.test(html), 'homepage must not load the EmailJS client');
+  assert.ok(!/emailjs/i.test(html), 'homepage must not load the old EmailJS client');
+  assert.ok(!/formsubmit\.co/.test(html), 'homepage must not link to a form provider');
   assert.ok(!/quote-form\.js/.test(html), 'homepage must not load the form core');
   assert.match(html, /\/assets\/js\/main\.js/, 'homepage still needs the shared header/footer script');
 });

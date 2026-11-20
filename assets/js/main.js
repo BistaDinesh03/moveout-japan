@@ -195,21 +195,24 @@ function toggleFAQ(element) {
 // ------------
 // * The form carries `novalidate` on purpose. Validation is performed
 //   explicitly inside `handleSubmit()` using the pure rules in quote-form.js.
-// * Client-side validation is a UX guardrail, NOT a security boundary. The
-//   email provider is called straight from the browser with a public key.
-// * The ONLY code path that can reach the provider lives in
-//   `createOwnerTransport()` / `createConfirmTransport()` below. Tests inject
-//   a mock instead, so no test can ever produce a real email.
-// * The provider (EmailJS) can fail independently of this site. When it does,
-//   the UI must say so and offer a pre-filled mailto fallback. It must never
-//   display the success panel.
+// * Client-side validation is a UX guardrail, NOT a security boundary.
+// * Delivery uses FormSubmit's documented AJAX endpoint. The ONLY code path
+//   that can reach it lives in `createOwnerTransport()` below. Tests inject a
+//   mock instead, so no test can ever produce a real email.
+// * The form also has a native POST action to the standard FormSubmit endpoint
+//   as a no-JavaScript fallback, and a pre-filled mailto fallback here in the
+//   UI. Neither is a fake submission system.
+// * FormSubmit returns HTTP 200 even when it refuses a submission. Success is
+//   shown only after an explicit positive success flag in its JSON receipt.
+// * FormSubmit CAPTCHA remains enabled (no disable flag is set) and the `_honey` honeypot
+//   is checked locally before any request is made.
 
-const EMAILJS_CONFIG = {
-  serviceId: 'service_sbebnme',
-  ownerTemplateId: 'template_73vpqgp',
-  confirmTemplateId: 'template_a6nc3t4',
-  ownerEmail: CONTACT_EMAIL
-};
+// FormSubmit's registered receiving inbox. This is the same public address
+// used in the form's native action; it is not a secret or an API key.
+const FORMSUBMIT_EMAIL = 'bistadinesh642@gmail.com';
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/' + FORMSUBMIT_EMAIL;
+const FORMSUBMIT_SUBJECT = 'Move Out Japan - New quote request';
+const SUBMISSION_TYPE = 'Quote request';
 
 // Lazily created so that a failure to load quote-form.js cannot break the
 // rest of main.js (header/footer injection, blog rendering, FAQ toggles).
@@ -219,58 +222,70 @@ function getSubmitGuard() {
   return quoteSubmitGuard;
 }
 
-function emailJsReady() {
-  return typeof emailjs !== 'undefined' &&
-         emailjs !== null &&
-         typeof emailjs.send === 'function';
-}
-
-/** Sends the quote to the site owner. This is one of exactly two places in
- *  the codebase that can transmit data. */
+/** The single network path in the codebase. Sends a JSON body to FormSubmit
+ *  and returns its parsed receipt for the pure core to inspect. */
 function createOwnerTransport() {
-  return function (payload) {
-    if (!emailJsReady()) {
-      const e = new Error('EmailJS is not available on this page');
+  return async function (payload) {
+    if (typeof fetch !== 'function') {
+      const e = new Error('fetch is not available in this browser');
       e.code = 'unavailable';
       throw e;
     }
-    return emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.ownerTemplateId, payload);
-  };
-}
 
-/** Best-effort confirmation copy to the visitor. Failure here must never be
- *  reported to the user as "we did not receive your request". */
-function createConfirmTransport() {
-  return function (payload) {
-    if (!emailJsReady()) {
-      const e = new Error('EmailJS is not available on this page');
-      e.code = 'unavailable';
+    let response;
+    try {
+      response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      // fetch rejects on network/CORS failure, not on an HTTP error status.
+      const e = new Error('Network request failed');
+      e.code = 'network';
       throw e;
     }
-    return emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.confirmTemplateId, payload);
+
+    if (!response || typeof response.ok !== 'boolean') {
+      const e = new Error('Unusable response from the email service');
+      e.code = 'malformed';
+      throw e;
+    }
+    if (!response.ok) {
+      const e = new Error('FormSubmit returned HTTP ' + response.status);
+      e.code = response.status >= 500 ? 'network' : 'provider';
+      e.status = response.status;
+      throw e;
+    }
+
+    let data;
+    try {
+      data = await response.json();
+    } catch (err) {
+      const e = new Error('FormSubmit did not return JSON');
+      e.code = 'malformed';
+      throw e;
+    }
+
+    MoveOutQuoteForm.assertFormSubmitResponse(data);
+    return data;
   };
 }
 
 function buildOwnerPayload(values) {
   return {
-    to_email: EMAILJS_CONFIG.ownerEmail,
-    from_name: values.name,
-    from_email: values.email,
+    // The visitor's validated address becomes the Reply-To on the received mail.
+    _replyto: values.email,
+    _subject: FORMSUBMIT_SUBJECT,
+    // FormSubmit's own honeypot. It stays empty for real visitors.
+    _honey: '',
+    name: values.name,
+    email: values.email,
+    submission_type: SUBMISSION_TYPE,
     location: values.location,
     items: values.items,
-    submission_date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }),
-    reply_to: values.email
-  };
-}
-
-function buildConfirmPayload(values) {
-  return {
-    to_email: values.email,
-    to_name: values.name,
-    items: values.items,
-    location: values.location,
-    reply_message: 'We received your request! We\'ll get back to you with a quote and next steps.\n\nThank you,\nMove Out Japan Team\n📱 LINE: @704xslsr',
-    from_name: 'Move Out Japan'
+    source_page: typeof window !== 'undefined' && window.location ? window.location.href : '',
+    submission_date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Tokyo' })
   };
 }
 
@@ -279,12 +294,15 @@ function buildConfirmPayload(values) {
 function buildMailtoFallback(values) {
   const v = values || {};
   const lines = [
+    'Submission type: ' + SUBMISSION_TYPE,
     'Name: ' + (v.name || ''),
     'Email: ' + (v.email || ''),
     'Area in Japan: ' + (v.location || ''),
     '',
     'Items to dispose:',
-    (v.items || '')
+    (v.items || ''),
+    '',
+    'Source page: ' + (typeof window !== 'undefined' && window.location ? window.location.href : '')
   ];
   return 'mailto:' + CONTACT_EMAIL +
     '?subject=' + encodeURIComponent(GENERAL_SUBJECT) +
@@ -472,9 +490,7 @@ async function handleSubmit(event) {
     const outcome = await guard.run(function () {
       return MoveOutQuoteForm.deliver({
         transport: createOwnerTransport(),
-        confirmTransport: createConfirmTransport(),
-        ownerPayload: buildOwnerPayload(check.values),
-        confirmPayload: buildConfirmPayload(check.values)
+        ownerPayload: buildOwnerPayload(check.values)
       });
     });
 
@@ -564,16 +580,8 @@ function setActiveNavLink() {
 
 // ========== INITIALIZATION ==========
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize EmailJS only on pages that actually have a form to submit.
-  if (document.getElementById('priceCheckForm')) {
-    if (typeof emailjs !== 'undefined' && emailjs && typeof emailjs.init === 'function') {
-      try {
-        emailjs.init('Hx0NbUvVMgUQ2odp_');
-      } catch (e) {
-        console.error('EmailJS init failed:', e);
-      }
-    }
-  }
+  // FormSubmit needs no client library or initialisation: the transport only
+  // runs when the visitor actually submits the form.
 
   // Load shared components
   loadHeader();
