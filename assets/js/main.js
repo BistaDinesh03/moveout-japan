@@ -89,7 +89,7 @@ function loadHeader() {
       <nav class="navbar" aria-label="Main navigation">
         <div class="container nav-container">
           <a href="/" class="nav-logo" aria-label="Move Out Japan home">
-            <img src="/assets/images/brand/move-out-japan-logo.svg" alt="Move Out Japan" width="220" height="47">
+            <img src="/assets/images/brand/move-out-japan-logo-light.svg" alt="Move Out Japan" width="220" height="47">
           </a>
           <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
             <span></span><span></span><span></span>

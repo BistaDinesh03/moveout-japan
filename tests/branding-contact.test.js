@@ -86,8 +86,10 @@ test('the manifest points at the new icons and brand theme', () => {
 test('the shared header and footer use the original logo, not a generic icon', () => {
   const main = read('assets/js/main.js');
 
-  assert.match(main, /\/assets\/images\/brand\/move-out-japan-logo\.svg/, 'header logo missing');
-  assert.match(main, /\/assets\/images\/brand\/move-out-japan-logo-light\.svg/, 'footer logo missing');
+  // Both header and footer sit on the dark navy bar, so both use the light
+  // (white) logo variant. Using the dark logo there forced an invert filter.
+  const lightLogoRefs = (main.match(/\/assets\/images\/brand\/move-out-japan-logo-light\.svg/g) || []).length;
+  assert.ok(lightLogoRefs >= 2, 'header and footer must use the light logo variant');
   assert.match(main, /alt="Move Out Japan"/, 'logo must keep its accessible name');
 
   const homepage = read('index.html');

@@ -304,7 +304,6 @@ strong {
 .nav-logo img {
   width: auto;
   height: 40px;
-  filter: brightness(0) invert(1);
 }
 
 .nav-links {
