@@ -272,7 +272,7 @@ test('internal links are extensionless and cover the conversion paths', () => {
 
 test('the catalogue lists the guide with the right date and category', () => {
   const posts = readBlogPosts();
-  assert.equal(posts.length, 7, `expected 7 published articles, found ${posts.length}`);
+  assert.equal(posts.length, 8, `expected 8 published articles, found ${posts.length}`);
 
   const post = posts.find((p) => p.slug === SLUG);
   assert.ok(post, 'the arrival guide is missing from BLOG_POSTS');
@@ -297,20 +297,20 @@ test('sitemap.xml lists the guide and the refreshed blog and partner pages', () 
       `${url} must carry the date its content last changed`);
   };
   check(CANONICAL, PUB_DATE);
-  check(`${ORIGIN}/blog/`, '2026-11-20');
-  check(`${ORIGIN}/partners`, '2026-11-20');
+  check(`${ORIGIN}/blog/`, '2026-11-24');
+  check(`${ORIGIN}/partners`, '2026-11-24');
 });
 
 test('sitemap.html advertises the guide and the new counts', () => {
   const html = read(path.join(ROOT, 'sitemap.html'));
   assert.ok(html.includes(`/blog/posts/${SLUG}`), 'sitemap.html missing the new guide');
-  assert.match(html, /Blog &(?:amp;)? Guides <span class="total-pages">8 pages<\/span>/);
-  assert.match(html, /Last updated: November 20, 2026/);
+  assert.match(html, /Blog &(?:amp;)? Guides <span class="total-pages">9 pages<\/span>/);
+  assert.match(html, /Last updated: November 24, 2026/);
 });
 
 test('the partners page links to the guide for arrival-side enquiries', () => {
   const partners = read(path.join(ROOT, 'partners.html'));
   assert.ok(partners.includes(`href="/blog/posts/${SLUG}"`),
     'partners page should link to the arrival-side guide');
-  assert.match(partners, /Page updated 20 November 2026/);
+  assert.match(partners, /Page updated 24 November 2026/);
 });

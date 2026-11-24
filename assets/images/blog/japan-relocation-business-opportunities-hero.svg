@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="mojBizTitle mojBizDesc">
+  <title id="mojBizTitle">Japan relocation support for foreign residents: business opportunities</title>
+  <desc id="mojBizDesc">Branded editorial illustration showing a relocation handshake, a city skyline and a partnership document on a navy background.</desc>
+  <defs>
+    <linearGradient id="mojBizBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14283B"/>
+      <stop offset="1" stop-color="#1d3a56"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#mojBizBg)"/>
+  <circle cx="1120" cy="60" r="210" fill="#B7473D" opacity="0.13"/>
+  <circle cx="1120" cy="60" r="125" fill="#B7473D" opacity="0.19"/>
+
+  <g font-family="Inter, 'Segoe UI', Arial, sans-serif">
+    <text x="80" y="88" fill="#f4b7bc" font-size="19" font-weight="700" letter-spacing="3">MOVE OUT JAPAN  ·  BUSINESS GUIDE</text>
+    <text x="80" y="178" fill="#ffffff" font-size="62" font-weight="800" letter-spacing="-2">Relocation support</text>
+    <text x="80" y="245" fill="#ffffff" font-size="62" font-weight="800" letter-spacing="-2">as a business</text>
+    <text x="80" y="306" fill="#d7e0ee" font-size="28" font-weight="500">For residents, agencies and partners</text>
+    <rect x="80" y="342" width="88" height="4" rx="2" fill="#B7473D"/>
+    <text x="80" y="390" fill="#aebdd4" font-size="21">Source-based guidance for people and providers</text>
+    <text x="80" y="424" fill="#8fa2bd" font-size="19">Official sources checked 24 November 2026</text>
+  </g>
+
+  <g transform="translate(842 92)">
+    <rect width="292" height="312" rx="30" fill="#ffffff" opacity="0.97"/>
+
+    <!-- City skyline -->
+    <g transform="translate(36 46)">
+      <rect x="0" y="60" width="52" height="120" rx="6" fill="none" stroke="#14283B" stroke-width="8"/>
+      <rect x="62" y="20" width="62" height="160" rx="6" fill="none" stroke="#14283B" stroke-width="8"/>
+      <rect x="134" y="80" width="48" height="100" rx="6" fill="none" stroke="#14283B" stroke-width="8"/>
+      <g fill="#14283B" opacity="0.5">
+        <rect x="10" y="80" width="14" height="14" rx="2"/>
+        <rect x="10" y="112" width="14" height="14" rx="2"/>
+        <rect x="74" y="44" width="14" height="14" rx="2"/>
+        <rect x="74" y="76" width="14" height="14" rx="2"/>
+        <rect x="144" y="100" width="14" height="14" rx="2"/>
+      </g>
+    </g>
+
+    <!-- Handshake -->
+    <g transform="translate(62 210)">
+      <path d="M0 38 34 8l20 20-18 18" fill="none" stroke="#14283B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M120 38 86 8 66 28 84 46" fill="none" stroke="#B7473D" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M46 34 66 52" stroke="#14283B" stroke-width="8" stroke-linecap="round"/>
+      <path d="M74 34 54 52" stroke="#B7473D" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Document -->
+    <g transform="translate(40 288)">
+      <rect x="0" y="0" width="210" height="14" rx="7" fill="#14283B" opacity="0.8"/>
+      <rect x="0" y="26" width="170" height="10" rx="5" fill="#14283B" opacity="0.45"/>
+      <rect x="0" y="46" width="130" height="10" rx="5" fill="#14283B" opacity="0.3"/>
+    </g>
+  </g>
+</svg>
