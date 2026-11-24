@@ -10,6 +10,14 @@
 // `tests/blog.test.js` enforces this — do not add an entry without a file.
 const BLOG_POSTS = [
   {
+    slug: 'japan-relocation-support-business-opportunities',
+    title: 'Japan Relocation Support for Foreign Residents: An Opportunity for Agencies and Business Partners',
+    excerpt: 'Why practical relocation information matters for foreign residents and the businesses that serve them, and how agencies, providers and buyers can work with Move Out Japan.',
+    category: 'Business Opportunities',
+    date: '2026-11-24',
+    image: '/assets/images/blog/japan-relocation-business-opportunities-social.png'
+  },
+  {
     slug: 'hiring-foreign-employees-japan-relocation-support',
     title: 'Hiring Foreign Employees in Japan? A Practical Guide to Relocation, Housing and Settling-In Support',
     excerpt: 'What employers should arrange before arrival, how housing and settling-in support work, what Specified Skilled Worker (i) requires, and how to choose a relocation partner.',
